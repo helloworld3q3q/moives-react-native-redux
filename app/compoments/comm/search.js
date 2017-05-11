@@ -14,6 +14,7 @@ class search extends Component{
 
 const style = StyleSheet.create({
 	btn: {
+		zIndex:9,
 		position: 'absolute',
 		backgroundColor: 'transparent',
 		paddingHorizontal: 15,

@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { Text, View, ScrollView, StyleSheet }  from 'react-native';
 
 import Search from './comm/search';
-import { size } from '../util/style'
+import Banner from './comm/banner';
+import { size } from '../util/style';
+
 
 class root extends Component {
 
@@ -15,7 +17,7 @@ class root extends Component {
 			<View style={style.wrap}>
 				<Search/>
 				<ScrollView>
-					
+					<Banner/>
 				</ScrollView>
 			</View>
 		);

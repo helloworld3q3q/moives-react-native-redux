@@ -6,5 +6,5 @@
  * @desc [description]
 */
 export default function () {
-    return '21321';
+    return [213,324,324];
 }

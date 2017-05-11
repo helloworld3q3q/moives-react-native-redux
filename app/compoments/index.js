@@ -3,13 +3,18 @@ import { Text, View }  from 'react-native';
 
 
 class Index extends Component {
+
+	constructor(props) {
+        super(props);
+    }
+
 	render() {
 		return(
 			<View>
-				<Text>3213</Text>
+				<Text>{213}</Text>
 			</View>
 		);
 	}
 }
 
-export default Index;
+module.exports = Index;

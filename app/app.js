@@ -7,12 +7,14 @@ import allReducers from './reducers/allReducers';
 
 const store = createStore(allReducers);
 
-export default class App extends Component {
+class App extends Component {
+	constructor(props) {
+        super(props);
+    }
+
 	render() {
-		return(
-			<Provider state={ store }>
-				<Index/>
-			</Provider>
-		);
+		return <Index/>
 	}
 }
+
+module.exports = App;

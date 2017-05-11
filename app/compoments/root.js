@@ -14,8 +14,8 @@ class root extends Component {
 		return(
 			<View style={style.wrap}>
 				<Search/>
-				<ScrollView >
-					<Text>21321</Text>
+				<ScrollView>
+					
 				</ScrollView>
 			</View>
 		);

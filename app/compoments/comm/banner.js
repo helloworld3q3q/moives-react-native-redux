@@ -3,6 +3,11 @@ import { View,Text ,StyleSheet }  from 'react-native';
 import Swiper from 'react-native-swiper';
 
 class banner extends Component {
+  
+  renderItem() {
+    
+  }
+
 	render() {
     return(
       <Swiper height={200} showsButtons={false} autoplay={true} loop={true}>

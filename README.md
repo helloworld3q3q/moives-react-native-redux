@@ -16,3 +16,6 @@ react-native-redux-demogit
 [branch "master"]
 	remote = origin
 	merge = refs/heads/master
+adb shell input keyevent 82  
+或者  
+adb -s emulator-5554 shell input keyevent 82  

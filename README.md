@@ -21,3 +21,5 @@ adb shell input keyevent 82
 adb -s emulator-5554 shell input keyevent 82  
 正在上映
 https://api.douban.com/v2/movie/in_theaters
+
+npm config set registry https://registry.npm.taobao.org    registry.npmjs.org

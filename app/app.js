@@ -14,7 +14,7 @@ class App extends Component {
 
 	render() {
 		return <Root/>
-	} 
+	}
 }
 
 module.exports = App;

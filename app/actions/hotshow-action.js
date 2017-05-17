@@ -5,7 +5,9 @@
  * @modify date 2017-05-12 04:56:43
  * @desc [description]
 */
-import { INDEX_BANNER, INDEX_LIST } from 'types';
+import { INDEX_BANNER, HOTSHOW_LIST } from './types';
+import { hotshowList } from '../middleware/index-api';
+
 
 export const addBanner = (banner) => {
 	return {
@@ -13,9 +15,14 @@ export const addBanner = (banner) => {
 	}
 }
 
-export const addList = (item) => {
+
+export function addList(data) {
 	return {
-		types: INDEX_LIST
+		type: HOTSHOW_LIST,
+		data
 	}
 }
 
+export const initHotshow = () => {
+  return hotshowList(addList);
+}

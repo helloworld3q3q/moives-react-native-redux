@@ -10,12 +10,10 @@ import { View,Text ,StyleSheet }  from 'react-native';
 import Swiper from 'react-native-swiper';
 import BannerCtn from '../../containers/banner-ctn';
 
-
 class banner extends Component {
-  
-  render() {
-    return <BannerCtn/>;
-  }
+    render() {
+      return <BannerCtn/>;
+    }
 }
 
 module.exports = banner;

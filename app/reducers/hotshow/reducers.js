@@ -24,7 +24,6 @@ export const Banner = (state = {}, action) => {
 		case HOTSHOW_BANNER:
 			let subjects = action.data;
 			let data = subjects.slice(0, 5);
-			console.log(data);
 			return Object.assign(
 			{} , state , {
 				data : data

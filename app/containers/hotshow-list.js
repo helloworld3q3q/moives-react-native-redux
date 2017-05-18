@@ -14,6 +14,7 @@ class HotShowList extends Component {
     
 	render() {
         let { hotshows } = this.props;
+        console.log(hotshows)
         return (
             <View>
                 <Text>{JSON.stringify(hotshows)}</Text>

@@ -10,3 +10,4 @@
 //首页 正在上映
 export const HOTSHOW_BANNER = 'HOTSHOW_BANNER';
 export const HOTSHOW_LIST = 'HOTSHOW_LIST';
+export const HOTSHOW_FEATCH = 'HOTSHOW_FEATCH';

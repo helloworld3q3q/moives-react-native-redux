@@ -10,8 +10,7 @@ import { Text, View, ScrollView, StyleSheet }  from 'react-native';
 import Search from './comm/search';
 import Banner from './comm/banner';
 import { size } from '../util/style';
-import HotShowList from '../containers/hotshow-list';
-
+import HotShow from './hotshow/index';
 
 class root extends Component {
 
@@ -22,7 +21,7 @@ class root extends Component {
 	render() {
 		return(
 			<View style={style.wrap}>
-				<HotShowList/>
+				<HotShow/>
 			</View>
 		);
 	}

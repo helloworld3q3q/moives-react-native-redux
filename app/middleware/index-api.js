@@ -7,11 +7,11 @@
 */
 const hotshow = 'https://api.douban.com/v2/movie/in_theaters';
 
-export function hotshowList(action) {
+export function hotshowFetch(action) {
 	return (dispatch) => {
 		fetch(hotshow).then(res => res.json())
 		.then(json => {
-			dispatch(action.call(this, json));
+			dispatch(action(json));
 		})
 		.catch(msg => console.log('hotshowList-err  '+ msg));
 	}

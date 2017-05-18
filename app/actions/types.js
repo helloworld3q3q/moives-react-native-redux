@@ -8,5 +8,5 @@
 'use strict';
 
 //首页 正在上映
-export const INDEX_BANNER = 'INDEX_BANNER';
+export const HOTSHOW_BANNER = 'HOTSHOW_BANNER';
 export const HOTSHOW_LIST = 'HOTSHOW_LIST';

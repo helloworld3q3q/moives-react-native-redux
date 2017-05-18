@@ -5,16 +5,7 @@
  * @modify date 2017-05-12 04:56:34
  * @desc [description]
 */
-import { INDEX_BANNER, HOTSHOW_LIST } from '../../actions/types';
-
-export const item = (state = {}, action) => {
-	switch (action.type) {
-		case INDEX_LIST:
-			break;
-		default:
-			break;
-	}
-}
+import { HOTSHOW_BANNER, HOTSHOW_LIST } from '../../actions/types';
 
 export const HotShowList = (state = {}, action) => {
 	switch (action.type) {
@@ -27,3 +18,18 @@ export const HotShowList = (state = {}, action) => {
 		return state;
 	}
 }
+
+export const Banner = (state = {}, action) => {
+	switch (action.type) {
+		case HOTSHOW_BANNER:
+			let subjects = action.data;
+			let data = subjects;
+			
+			return Object.assign(
+			{} , state , {
+				data : data
+			}); 
+		default:
+		return state;
+	}
+} 

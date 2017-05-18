@@ -8,28 +8,29 @@
 import React, { Component } from 'react';
 import { View,Text ,StyleSheet }  from 'react-native';
 import Swiper from 'react-native-swiper';
+import BannerCtn from '../../containers/banner-ctn';
+
 
 class banner extends Component {
   
-  renderItem() {
-    
+  render() {
+    return <BannerCtn/>;
   }
-
-	render() {
-    return(
-      <Swiper height={200} showsButtons={false} autoplay={true} loop={true}>
-				<View style={styles.slide1}>
-				<Text style={styles.text}>Hello Swiper</Text>
-				</View>
-				<View style={styles.slide2}>
-				<Text style={styles.text}>Beautiful</Text>
-				</View>
-				<View style={styles.slide3}>
-				  <Text style={styles.text}>And simple</Text>
-				</View>
-			</Swiper>
-		);
-	}
+	// render() {
+  //   return(
+  //     <Swiper height={200} showsButtons={false} autoplay={true} loop={true}>
+	// 			<View style={styles.slide1}>
+	// 			<Text style={styles.text}>Hello Swiper</Text>
+	// 			</View>
+	// 			<View style={styles.slide2}>
+	// 			<Text style={styles.text}>Beautiful</Text>
+	// 			</View>
+	// 			<View style={styles.slide3}>
+	// 			  <Text style={styles.text}>And simple</Text>
+	// 			</View>
+	// 		</Swiper>
+	// 	);
+	// }
 }
 var styles = StyleSheet.create({
   slide1: {

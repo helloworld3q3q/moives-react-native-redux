@@ -1,15 +1,31 @@
 import React, { Component } from 'react';
-import { Text } from 'react-native';
+import { Text, StyleSheet, View, Image } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { addBanner } from '../actions/hotshow-action';
+import { size } from '../util/style';
+import Swiper from 'react-native-swiper';
 
 class BannerCtn extends Component {
-
     render() {
+        let data = this.props.banner.data;
         return (
-            <Text>{JSON.stringify(this.props.banner)}</Text>
-		);
+            <View>
+            { data !== undefined ? 
+                <Swiper height={200}>
+                    {
+                        data.map((item, i) => {
+                                return ( <View key={i} style={{flex: 1}}>
+                                    <Image style={{flex: 1}}  resizeMode='cover'
+                                    source={{uri: item.images.large}}/>
+                                    <Text style={style.title}> {item.title} </Text>
+                                </View>)
+                        })
+                    }
+                </Swiper> : <Text>loading</Text>
+            }
+            </View>
+        );
     }
 }
 
@@ -18,5 +34,17 @@ function mapStateToProps(state) {
         banner: state.banner
     }
 }
+
+let style = StyleSheet.create({
+    title: {
+        position: 'absolute',
+        flex: 1,
+        width: size.width,
+        bottom: 0,
+        color: '#222629',
+        textAlign: 'right',
+        backgroundColor: 'rgba(230, 230, 230, 0.3)',
+    }
+})
 
 export default connect(mapStateToProps)(BannerCtn);

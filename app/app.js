@@ -9,14 +9,14 @@ import { createStore, applyMiddleware, compose  } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk'
 import React, { Component } from 'react';
-import Root from './compoments/root';
+import Root from './containers/root';
 import allReducers from './reducers/allReducers';
 import { initHotshow, fetchLoading } from './actions/hotshow-action';
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 const store = createStoreWithMiddleware(allReducers);
-
-store.dispatch(initHotshow());
+//初始化 进入等待
+store.dispatch(fetchLoading(true));
 
 class App extends Component {
 

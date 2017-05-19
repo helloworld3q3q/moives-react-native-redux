@@ -15,7 +15,7 @@ export const addBanner = (data) => {
 		data
 	}
 }
-
+//加载等待，true 显示 反之
 export const fetchLoading = (bool) => {
 	return {
 		type: HOTSHOW_FETCH,
@@ -30,7 +30,7 @@ export const addList = (data) => {
 		data
 	}
 }
-
+// 正在热映 初始请求
 export const initHotshow = () => {
-  return hotshowFetch(addList);
+	return hotshowFetch(addList);
 }

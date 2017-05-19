@@ -7,24 +7,14 @@
 */
 import React, { Component } from 'react';
 import { Text, View, ScrollView, StyleSheet }  from 'react-native';
-import Search from './comm/search';
-import Banner from './comm/banner';
 import { size } from '../util/style';
-import HotShow from '../containers/hotshow/index';
+import HotShow from './hotshow/index';
 
 class root extends Component {
 
 	constructor(props) {
         super(props);
     }
-
-	// render() {
-	// 	return(
-	// 		<View style={style.wrap}>
-	// 			<Loading/>
-	// 		</View>
-	// 	);
-	// }
 
 	render() {
 		return(

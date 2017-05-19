@@ -7,8 +7,8 @@
 */
 import React, { Component } from 'react';
 import { Animated, ART, View, StyleSheet } from 'react-native';
-import { size } from '../../util/style';
 const { Surface, Path, Shape } = ART;
+import { size } from '../../util/style';
 
 class Circle extends Component {
 	render() {

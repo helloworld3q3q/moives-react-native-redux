@@ -6,11 +6,10 @@ import { addBanner } from '../../actions/hotshow-action';
 import Loading from '../../compoments/comm/loading';
 
 class HotShowList extends Component {
-   
-    componentWillReceiveProps(nextProps) {
-        let { hotshows, bannerAction  } = nextProps;
+
+    componentWillMount() {
+        let { hotshows, bannerAction  } = this.props;
         let subs = hotshows.data.subjects;
-        
         bannerAction(subs);
     }
     
@@ -30,7 +29,7 @@ function mapStateToProps(state) {
     }
 }
 function macthDispatchToProps(dispatch) {
-    return bindActionCreators({bannerAction: addBanner}, dispatch);
+    return bindActionCreators({ bannerAction: addBanner}, dispatch);
 }
 
 export default connect(mapStateToProps, macthDispatchToProps)(HotShowList);

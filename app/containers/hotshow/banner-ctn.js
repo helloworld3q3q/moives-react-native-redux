@@ -10,7 +10,7 @@ class BannerCtn extends Component {
     render() {
         let data = this.props.banner.data;
         return (
-            <View>
+            <View style={{height: 200}}>
             { data !== undefined ? 
                 <Swiper height={200}>
                     {

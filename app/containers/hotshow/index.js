@@ -6,21 +6,41 @@
  * @desc [description]
 */
 import React, { Component } from 'react';
-import { Text, View, ScrollView, StyleSheet }  from 'react-native';
-
+import { View, ScrollView, StyleSheet }  from 'react-native';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import { size } from '../../util/style';
 import HotShowList from './hotshow-list';
 import Banner from './banner-ctn';
+import Loading from '../../compoments/comm/loading'
+import { fetchLoading, initHotshow } from '../../actions/hotshow-action';
 
 class hotshow extends Component {
+
+	componentWillMount() {
+		let _that = this;
+		let time = setTimeout(function(){
+			_that.props.initHotshowAction();
+			clearTimeout(time);
+		}, 1500);
+	}
+
 	render() {
-		return (
-			<ScrollView>
-				<Banner/>
-				<HotShowList/> 
-			</ScrollView>
-		);
+		return (<View >
+				{this.props.fetchbool ? <Loading/> : 
+					(<ScrollView>
+						<Banner/><HotShowList/> 
+					</ScrollView>)
+				}
+			</View>);
 	}
 }
-
-module.exports = hotshow;
+function mapStateToProps(state) {
+    return {
+        fetchbool: state.fetchload.data
+    }
+}
+function macthDispatchToProps(dispatch) {
+    return bindActionCreators({initHotshowAction: initHotshow}, dispatch);
+}
+export default connect(mapStateToProps, macthDispatchToProps)(hotshow);

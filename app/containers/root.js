@@ -26,8 +26,9 @@ class root extends Component {
 }
 const style = StyleSheet.create({
 	wrap: {
+		paddingBottom: 60,
 		backgroundColor: '#f5f5f5',
-		height: size.height,
+		height: size.height ,
 		width: size.width
 	}
 });

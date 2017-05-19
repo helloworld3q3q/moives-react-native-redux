@@ -12,7 +12,7 @@ class BannerCtn extends Component {
         return (
             <View style={{height: 200}}>
             { data !== undefined ? 
-                <Swiper height={200}>
+                <Swiper height={200} autoplay={true}>
                     {
                         data.map((item, i) => {
                                 return ( <View key={i} style={{flex: 1}}>
@@ -41,9 +41,9 @@ let style = StyleSheet.create({
         flex: 1,
         width: size.width,
         bottom: 0,
-        color: '#222629',
+        color: '#ffffff',
         textAlign: 'right',
-        backgroundColor: 'rgba(230, 230, 230, 0.3)',
+        backgroundColor: 'rgba(230,69,51,0.25)'
     }
 })
 

@@ -6,7 +6,7 @@
  * @desc [description]
 */
 import React, { Component } from 'react';
-import { View, ScrollView, StyleSheet }  from 'react-native';
+import { View, ScrollView }  from 'react-native';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { size } from '../../util/style';
@@ -29,7 +29,8 @@ class hotshow extends Component {
 		return (<View >
 				{this.props.fetchbool ? <Loading/> : 
 					(<ScrollView>
-						<Banner/><HotShowList/> 
+						<Banner/>
+						<HotShowList/> 
 					</ScrollView>)
 				}
 			</View>);

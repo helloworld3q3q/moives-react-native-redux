@@ -9,13 +9,14 @@ import React, { Component } from 'react';
 import { Text, View, ScrollView, StyleSheet }  from 'react-native';
 
 import { size } from '../../util/style';
-import HotShowList from '../../containers/hotshow-list';
-import Banner from '../comm/banner';
+import HotShowList from './hotshow-list';
+import Banner from './banner-ctn';
 
-class hotshow extends Component{
+class hotshow extends Component {
 	render() {
 		return (
 			<ScrollView>
+				<Banner/>
 				<HotShowList/> 
 			</ScrollView>
 		);

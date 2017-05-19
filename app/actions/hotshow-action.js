@@ -5,7 +5,7 @@
  * @modify date 2017-05-12 04:56:43
  * @desc [description]
 */
-import { HOTSHOW_BANNER, HOTSHOW_LIST } from './types';
+import { HOTSHOW_BANNER, HOTSHOW_LIST, HOTSHOW_FETCH } from './types';
 import { hotshowFetch } from '../middleware/index-api';
 
 
@@ -13,6 +13,13 @@ export const addBanner = (data) => {
 	return {
 		type: HOTSHOW_BANNER,
 		data
+	}
+}
+
+export const fetchLoading = (bool) => {
+	return {
+		type: HOTSHOW_FETCH,
+		bool
 	}
 }
 

@@ -6,11 +6,12 @@
  * @desc [description]
 */
 import { combineReducers } from 'redux';
-import { HotShowList, Banner } from './hotshow/reducers'
+import { HotShowList, Banner, fetchLoading } from './hotshow/reducers'
 
 const allReducers = combineReducers({
 	hotshows: HotShowList,
-	banner: Banner
+	banner: Banner,
+	fetchload: fetchLoading,
 });
 
 export default allReducers;

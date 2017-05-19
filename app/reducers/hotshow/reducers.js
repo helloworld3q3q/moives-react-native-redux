@@ -5,7 +5,7 @@
  * @modify date 2017-05-12 04:56:34
  * @desc [description]
 */
-import { HOTSHOW_BANNER, HOTSHOW_LIST } from '../../actions/types';
+import { HOTSHOW_BANNER, HOTSHOW_LIST, HOTSHOW_FETCH } from '../../actions/types';
 
 export const HotShowList = (state = {}, action) => {
 	switch (action.type) {
@@ -31,4 +31,16 @@ export const Banner = (state = {}, action) => {
 		default:
 		return state;
 	}
-} 
+}
+
+export const fetchLoading = (state = {}, action) => {
+	switch (action.type) {
+		case HOTSHOW_FETCH:
+			return Object.assign(
+			{} , state , {
+				data : action.bool
+			});
+		default:
+		return state;
+	}
+}

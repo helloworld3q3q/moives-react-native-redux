@@ -69,7 +69,7 @@ class Loading extends Component {
 		])
 		.start(() => {
 			if (!this.unmounted) {
-			this.animate(index);
+				this.animate(index);
 			}
 		});
 	}

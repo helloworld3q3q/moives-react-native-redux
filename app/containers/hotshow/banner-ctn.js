@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Text, StyleSheet, View, Image } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { addBanner } from '../actions/hotshow-action';
-import { size } from '../util/style';
 import Swiper from 'react-native-swiper';
+import { addBanner } from '../../actions/hotshow-action';
+import { size } from '../../util/style';
 
 class BannerCtn extends Component {
     render() {

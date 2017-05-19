@@ -10,8 +10,7 @@ import { Text, View, ScrollView, StyleSheet }  from 'react-native';
 import Search from './comm/search';
 import Banner from './comm/banner';
 import { size } from '../util/style';
-import HotShow from './hotshow/index';
-import Loading from './comm/loading';
+import HotShow from '../containers/hotshow/index';
 
 class root extends Component {
 
@@ -19,21 +18,21 @@ class root extends Component {
         super(props);
     }
 
-	render() {
-		return(
-			<View style={style.wrap}>
-				<Loading/>
-			</View>
-		);
-	}
-
 	// render() {
 	// 	return(
 	// 		<View style={style.wrap}>
-	// 			<HotShow/>
+	// 			<Loading/>
 	// 		</View>
 	// 	);
 	// }
+
+	render() {
+		return(
+			<View style={style.wrap}>
+				<HotShow/>
+			</View>
+		);
+	}
 }
 const style = StyleSheet.create({
 	wrap: {

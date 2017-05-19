@@ -7,12 +7,13 @@
 */
 const hotshow = 'https://api.douban.com/v2/movie/in_theaters';
 
+import { initHotshow, fetchLoading } from '../actions/hotshow-action';
+
 export function hotshowFetch(action) {
 	return (dispatch) => {
 		fetch(hotshow).then(res => res.json())
 		.then(json => {
 			dispatch(action(json));
-		})
-		.catch(msg => console.log('hotshowList-err  '+ msg));
+		}).catch(msg => console.log('hotshowList-err  '+ msg));
 	}
 }

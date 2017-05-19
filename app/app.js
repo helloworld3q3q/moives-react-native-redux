@@ -11,11 +11,10 @@ import thunk from 'redux-thunk'
 import React, { Component } from 'react';
 import Root from './compoments/root';
 import allReducers from './reducers/allReducers';
-import { initHotshow } from './actions/hotshow-action';
+import { initHotshow, fetchLoading } from './actions/hotshow-action';
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 const store = createStoreWithMiddleware(allReducers);
-
 
 store.dispatch(initHotshow());
 

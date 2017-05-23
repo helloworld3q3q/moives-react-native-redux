@@ -6,7 +6,14 @@
  * @desc [description]
 */
 //const hotshow = 'https://api.douban.com/v2/movie/in_theaters';
+// const sonshow = 'https://api.douban.com/v2/movie/coming_soon';
+// const usshow = 'https://api.douban.com/v2/movie/us_box';
+// const nearcinemas = 'http://m.maoyan.com/cinemas.json';
+
 const hotshow = 'http://192.168.0.105:8080/weixin/hotshow.json';
+const sonshow = 'http://192.168.0.105:8080/weixin/sonshow.json';
+const usshow = 'http://192.168.0.105:8080/weixin/usshow.json';
+const nearcinemas = 'http://192.168.0.105:8080/weixin/nearcinemas.json';
 
 import { initHotshow, fetchLoading } from '../actions/hotshow-action';
 

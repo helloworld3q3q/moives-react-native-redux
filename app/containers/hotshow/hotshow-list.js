@@ -10,16 +10,13 @@ import Banner from './banner-ctn';
 class HotShowList extends Component {
     constructor(props) {
         super(props);
-        let { hotshows, bannerAction  } = this.props;
-        let subs = hotshows.data.subjects;
-        bannerAction(subs);
     }
 
     componentWillMount() {
         //顶部轮播
-        // let { hotshows, bannerAction  } = this.props;
-        // let subs = hotshows.data.subjects;
-        // bannerAction(subs);
+        let { hotshows, bannerAction  } = this.props;
+        let subs = hotshows.data.subjects;
+        bannerAction(subs);
     }
     _renderList() {
         let { hotshows } = this.props;

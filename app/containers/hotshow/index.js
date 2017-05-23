@@ -24,14 +24,6 @@ class hotshow extends Component {
 		}, 1500);
 	}
 	render() {
-		// return (<View >
-		// 		{this.props.fetchbool ? <Loading/> : 
-		// 			(<ScrollView onScroll={(e) => this._scrollEnd(e)}>
-		// 				<Banner/>
-		// 				<HotShowList/> 
-		// 			</ScrollView>)
-		// 		}
-		// 	</View>);
 		return (<View >
 				{this.props.fetchbool ? <Loading/> : <HotShowList/> }
 			</View>);

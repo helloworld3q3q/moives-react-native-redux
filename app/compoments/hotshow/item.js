@@ -14,7 +14,6 @@ const width = size.width/2-0.2;
 class item extends Component{
 	render() {
 		let data = this.props.data;
-		console.log(this.props);
 		return(
 			<View style={style.box}>
 				<Image resizeMode='cover' style={style.avatar} source={{uri:data.images.large}}/>

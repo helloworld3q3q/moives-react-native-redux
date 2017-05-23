@@ -11,3 +11,4 @@
 export const HOTSHOW_BANNER = 'HOTSHOW_BANNER';
 export const HOTSHOW_LIST = 'HOTSHOW_LIST';
 export const HOTSHOW_FETCH = 'HOTSHOW_FETCH';
+export const ADDMORE = 'AddMORE';

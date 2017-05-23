@@ -7,6 +7,7 @@ import { addBanner } from '../../actions/hotshow-action';
 import { size } from '../../util/style';
 
 class BannerCtn extends Component {
+    
     render() {
         let data = this.props.banner.data;
         return (
@@ -15,14 +16,14 @@ class BannerCtn extends Component {
                 <Swiper height={200} autoplay={true}>
                     {
                         data.map((item, i) => {
-                                return ( <View key={i} style={{flex: 1}}>
+                                return ( <View key={i} style={{flex: 1, height:200}}>
                                     <Image style={{flex: 1}}  resizeMode='cover'
                                     source={{uri: item.images.large}}/>
                                     <Text style={style.title}> {item.title} </Text>
                                 </View>)
                         })
                     }
-                </Swiper> : <Text>loading</Text>
+                </Swiper>: <Text>loading</Text>
             }
             </View>
         );

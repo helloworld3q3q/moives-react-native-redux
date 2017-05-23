@@ -11,7 +11,6 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { size } from '../../util/style';
 import HotShowList from './hotshow-list';
-import Banner from './banner-ctn';
 import Loading from '../../compoments/comm/loading'
 import { fetchLoading, initHotshow } from '../../actions/hotshow-action';
 
@@ -24,24 +23,29 @@ class hotshow extends Component {
 			clearTimeout(time);
 		}, 1500);
 	}
-
 	render() {
+		// return (<View >
+		// 		{this.props.fetchbool ? <Loading/> : 
+		// 			(<ScrollView onScroll={(e) => this._scrollEnd(e)}>
+		// 				<Banner/>
+		// 				<HotShowList/> 
+		// 			</ScrollView>)
+		// 		}
+		// 	</View>);
 		return (<View >
-				{this.props.fetchbool ? <Loading/> : 
-					(<ScrollView>
-						<Banner/>
-						<HotShowList/> 
-					</ScrollView>)
-				}
+				{this.props.fetchbool ? <Loading/> : <HotShowList/> }
 			</View>);
 	}
 }
 function mapStateToProps(state) {
     return {
-        fetchbool: state.fetchload.data
+        fetchbool: state.fetchload.data,
+		hotshows: state.hotshows.data
     }
 }
 function macthDispatchToProps(dispatch) {
-    return bindActionCreators({initHotshowAction: initHotshow}, dispatch);
+    return bindActionCreators({
+		initHotshowAction: initHotshow,
+	}, dispatch);
 }
 export default connect(mapStateToProps, macthDispatchToProps)(hotshow);

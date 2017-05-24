@@ -26,10 +26,10 @@ class root extends Component {
 }
 const style = StyleSheet.create({
 	wrap: {
-		paddingBottom: 60,
+		paddingBottom: 45,
 		backgroundColor: '#f5f5f5',
 		height: size.height ,
-		width: size.width
+		width: size.width,
 	}
 });
 

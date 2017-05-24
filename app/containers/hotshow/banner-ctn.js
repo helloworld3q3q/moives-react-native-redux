@@ -39,7 +39,6 @@ function mapStateToProps(state) {
 let style = StyleSheet.create({
     title: {
         position: 'absolute',
-        flex: 1,
         width: size.width,
         bottom: 0,
         color: '#ffffff',

@@ -105,12 +105,14 @@ class Loading extends Component {
 
 let style = StyleSheet.create({
 	loading: {
+		position: 'absolute',
 		width: size.width,
 		height: size.height,
 		backgroundColor: '#3b4a4a',
 		alignItems: 'center',
 		justifyContent: 'center',
-		flexDirection: 'row'
+		flexDirection: 'row',
+		zIndex: 10,
 	}
 });
 

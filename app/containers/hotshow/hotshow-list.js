@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { Text, View, ListView } from 'react-native';
+import { Text, View, ListView, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { addBanner } from '../../actions/hotshow-action';
 import Loading from '../../compoments/comm/loading';
 import Item from '../../compoments/hotshow/item';
 import Banner from './banner-ctn';
+import Foot from '../../compoments/comm/foot';
 
 class HotShowList extends Component {
     constructor(props) {
@@ -51,7 +52,10 @@ class HotShowList extends Component {
         //removeClippedSubviews 处理 banner 图片不显示
         return (
             <View>
-                <ListView removeClippedSubviews={false} dataSource={this.state.dataSource}  renderRow={this._renderRow}/>
+                <View style={style.listbox}>
+                    <ListView removeClippedSubviews={false} dataSource={this.state.dataSource}  renderRow={this._renderRow}/>
+                </View>
+                <Foot/>
            </View>
 		);
     }
@@ -65,5 +69,10 @@ function mapStateToProps(state) {
 function macthDispatchToProps(dispatch) {
     return bindActionCreators({ bannerAction: addBanner}, dispatch);
 }
+let style = StyleSheet.create({
+    listbox: {
+        marginBottom: 45,
+    }
+});
 
 export default connect(mapStateToProps, macthDispatchToProps)(HotShowList);

@@ -52,7 +52,7 @@ class HotShowList extends Component {
         //removeClippedSubviews 处理 banner 图片不显示
         return (
             <View>
-                <View style={style.listbox}>
+                <View>
                     <ListView removeClippedSubviews={false} dataSource={this.state.dataSource}  renderRow={this._renderRow}/>
                 </View>
                 <Foot/>

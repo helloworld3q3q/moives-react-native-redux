@@ -39,7 +39,7 @@ let style = StyleSheet.create({
 		height: 45,
 		width: size.width,		
 		position: 'absolute',
-		bottom: 0,
+		bottom: -45,
 		left: 0,
 		flexDirection: 'row',
 		justifyContent: 'space-between',

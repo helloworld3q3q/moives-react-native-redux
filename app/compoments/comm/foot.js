@@ -8,16 +8,22 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { size } from '../../util/style';
+import { StackNavigator } from 'react-navigation';
 
 class foot extends Component{
+	constructor() {
+		super();
+	}
 	render() {
 		return (
 			<View style={style.foot}>
-				<TouchableOpacity style={[style.footItem, style.active]}>
+				<TouchableOpacity style={[style.footItem]}>
 					<Image style={style.footImage} resizeMode='contain' source={require('../../icon/icon_hot.png')}/>
-					<Text style={style.footTxt}>热映</Text>
+					<Text style={[style.footTxt, {backgroundColor: 'red'}]}>热映</Text>
 				</TouchableOpacity>
-				<TouchableOpacity style={style.footItem}>
+				<TouchableOpacity style={style.footItem} 
+					onPress={() => navigation.dispatch({ type: 'soonshow' })}
+      			>
 					<Image style={style.footImage} resizeMode='contain' source={require('../../icon/icon_soon_normal.png')}/>
 					<Text style={style.footTxt}>近期</Text>
 				</TouchableOpacity>

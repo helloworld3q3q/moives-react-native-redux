@@ -12,6 +12,7 @@ import React, { Component } from 'react';
 import Root from './containers/root';
 import allReducers from './reducers/allReducers';
 import { initHotshow, fetchLoading } from './actions/hotshow-action';
+import AppWithNavigationState from './navigators/AppNavigator'
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 const store = createStoreWithMiddleware(allReducers);
@@ -27,7 +28,7 @@ class App extends Component {
 	render() {
 		return (
 			<Provider store={ store }>
-				<Root/>
+				<AppWithNavigationState />
 			</Provider>
 		);
 	}

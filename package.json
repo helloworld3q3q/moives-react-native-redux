@@ -8,8 +8,9 @@
   },
   "dependencies": {
     "react": "16.0.0-alpha.6",
-    "react-native": "0.43.4",
+		"react-native": "0.44.2",
     "react-native-swiper": "^1.5.4",
+    "react-navigation": "^1.0.0-beta.11",
     "react-redux": "^5.0.4",
     "react-router": "^4.1.1",
     "react-router-redux": "^4.0.8",

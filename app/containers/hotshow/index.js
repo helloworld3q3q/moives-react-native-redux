@@ -16,22 +16,25 @@ import { fetchLoading, initHotshow } from '../../actions/hotshow-action';
 
 class hotshow extends Component {
 
-	componentWillMount() {
-		let _that = this;
-		let time = setTimeout(function(){
-			_that.props.initHotshowAction();
-			clearTimeout(time);
-		}, 1500);
-	}
+	// componentWillMount() {
+	// 	let _that = this;
+	// 	let time = setTimeout(function(){
+	// 		_that.props.initHotshowAction();
+	// 		clearTimeout(time);
+	// 	}, 1500);
+	// }
+	// render() {
+	// 	return (<View >
+	// 			{this.props.fetchbool ? <Loading/> : <HotShowList/> }
+	// 		</View>);
+	// }
 	render() {
-		return (<View >
-				{this.props.fetchbool ? <Loading/> : <HotShowList/> }
-			</View>);
+		return <HotShowList/>;
 	}
 }
 function mapStateToProps(state) {
     return {
-        fetchbool: state.fetchload.data,
+       // fetchbool: state.fetchload.data,
 		hotshows: state.hotshows.data
     }
 }
@@ -40,4 +43,5 @@ function macthDispatchToProps(dispatch) {
 		initHotshowAction: initHotshow,
 	}, dispatch);
 }
-export default connect(mapStateToProps, macthDispatchToProps)(hotshow);
+//export default connect(mapStateToProps, macthDispatchToProps)(hotshow);
+export default connect(mapStateToProps)(hotshow);

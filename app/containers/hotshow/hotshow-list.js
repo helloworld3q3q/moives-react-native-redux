@@ -7,6 +7,7 @@ import Loading from '../../compoments/comm/loading';
 import Item from '../../compoments/hotshow/item';
 import Banner from './banner-ctn';
 import Foot from '../../compoments/comm/foot';
+import { size } from '../../util/style';
 
 class HotShowList extends Component {
     constructor(props) {
@@ -18,7 +19,17 @@ class HotShowList extends Component {
         let { hotshows, bannerAction  } = this.props;
         let subs = hotshows.data.subjects;
         bannerAction(subs);
+        // ListView
+        let ds = new ListView.DataSource({
+            rowHasChanged: (r1, r2) => r1 !== r2
+        });
+        let data = this._renderList();
+        
+        this.setState({
+            dataSource: ds.cloneWithRows(data),
+        })
     }
+
     _renderList() {
         let { hotshows } = this.props;
         let ary = hotshows.data.subjects, subsAry = [], row=[];
@@ -41,23 +52,8 @@ class HotShowList extends Component {
         );
     }
 	render() {
-        let ds = new ListView.DataSource({
-            rowHasChanged: (r1, r2) => r1 !== r2
-        });
-        let data = this._renderList();
-        
-        this.state = {
-            dataSource: ds.cloneWithRows(data),
-        }
         //removeClippedSubviews 处理 banner 图片不显示
-        return (
-            <View>
-                <View>
-                    <ListView removeClippedSubviews={false} dataSource={this.state.dataSource}  renderRow={this._renderRow}/>
-                </View>
-                <Foot/>
-           </View>
-		);
+        return  <ListView removeClippedSubviews={false} dataSource={this.state.dataSource}  renderRow={this._renderRow.bind(this)}/>
     }
 }
 
@@ -71,7 +67,7 @@ function macthDispatchToProps(dispatch) {
 }
 let style = StyleSheet.create({
     listbox: {
-        marginBottom: 45,
+        marginBottom: 80,
     }
 });
 

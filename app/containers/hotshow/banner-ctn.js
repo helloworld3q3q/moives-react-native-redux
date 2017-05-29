@@ -7,13 +7,19 @@ import { addBanner } from '../../actions/hotshow-action';
 import { size } from '../../util/style';
 
 class BannerCtn extends Component {
-    
+    constructor(props) {
+        super(props);
+        this.state={
+            visibleSwiper: false
+        }
+    }
+
     render() {
         let data = this.props.banner.data;
         return (
             <View style={{height: 200}}>
-            { data !== undefined ? 
-                <Swiper height={200} autoplay={true}>
+            { this.state.visibleSwiper  ? 
+                <Swiper height={200} autoplay={true} >
                     {
                         data.map((item, i) => {
                                 return ( <View key={i} style={{flex: 1, height:200}}>
@@ -23,10 +29,19 @@ class BannerCtn extends Component {
                                 </View>)
                         })
                     }
-                </Swiper>: <Text>loading</Text>
+                </Swiper>: <Text>LOADING</Text>
             }
             </View>
         );
+    }
+
+    componentDidMount() {
+        let time = setTimeout(() => {
+            this.setState({
+                visibleSwiper: true
+            });
+            clearTimeout(time);
+        }, 200);
     }
 }
 

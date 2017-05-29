@@ -35,3 +35,52 @@ export const addList = (data) => {
 export const initHotshow = () => {
 	return hotshowFetch(addList);
 }
+
+
+//导航 action
+export const hotshowNav = (nav) => {
+	return {
+		type: 'hotshow',
+		nav
+	}
+}
+
+export const soonshowNav = (nav) => {
+	return {
+		type: nav.routeName,
+		nav
+	}
+}
+export const navigator = (nav, type) => {
+	return {
+		type: nav.routeName,
+		nav
+	}
+}
+
+// export const navigator = {
+// 	soonshowNav : (nav) => {
+// 		return {
+// 			type: 'soonshow',
+// 			nav
+// 		}
+// 	},
+// 	hotshowNav: (nav) => {
+// 		return {
+// 			type: 'hotshow',
+// 			nav
+// 		}
+// 	},
+// 	usshow: (nav) => {
+// 		return {
+// 			type: 'usshow',
+// 			nav
+// 		}
+// 	},
+// 	nearcinemas: (nav) => {
+// 		return {
+// 			type: 'nearcinemas',
+// 			nav
+// 		}
+// 	}
+// }

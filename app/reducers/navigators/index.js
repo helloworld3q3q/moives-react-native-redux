@@ -9,26 +9,55 @@
 import { NavigationActions } from 'react-navigation';
 import { AppNavigator } from '../../navigators/AppNavigator';
 
-const firstAction = AppNavigator.router.getActionForPathAndParams('Hotshow');
-const tempNavState = AppNavigator.router.getStateForAction(firstAction);
-const secondAction = AppNavigator.router.getActionForPathAndParams('Soonshow');
-const initialNavState = AppNavigator.router.getStateForAction(
-  secondAction,
-  tempNavState
-);
+// const firstAction = AppNavigator.router.getActionForPathAndParams('Hotshow');
+// const tempNavState = AppNavigator.router.getStateForAction(firstAction);
+// const secondAction = AppNavigator.router.getActionForPathAndParams('Soonshow');
+// const initialNavState = AppNavigator.router.getStateForAction(
+//   secondAction,
+//   tempNavState
+// );
+
+const initialNavState = {
+  index: 0,
+  routes: [
+    {
+      key: 'hotshow',
+      routeName:'Hotshow',
+      index: 0,
+    },
+    {
+      key: 'usshow',
+      routeName:'Usshow',
+    },
+    {
+      key: 'soonshow',
+      routeName:'Soonshow',
+    },
+    {
+      key: 'nearcinemas',
+      routeName:'Nearcinemas',
+    },
+  ],
+};
 
 export const nav = (state = initialNavState, action) => {
   let nextState;
   switch (action.type) {
-    case 'hotshow':
+    case 'Usshow':
       nextState = AppNavigator.router.getStateForAction(
-        NavigationActions.back(),
+          NavigationActions.navigate({ routeName: 'Usshow' }),
+          state
+      );
+      break;
+    case 'Soonshow':
+      nextState = AppNavigator.router.getStateForAction(
+        NavigationActions.navigate({ routeName: 'Soonshow' }),
         state
       );
       break;
-    case 'soonshow':
+    case 'Nearcinemas':
       nextState = AppNavigator.router.getStateForAction(
-        NavigationActions.navigate({ routeName: 'Soonshow' }),
+        NavigationActions.navigate({ routeName: 'Nearcinemas' }),
         state
       );
       break;
@@ -39,7 +68,5 @@ export const nav = (state = initialNavState, action) => {
       );
       break;
   }
-
-  // Simply return the original `state` if `nextState` is null or undefined.
   return nextState || state;
 }

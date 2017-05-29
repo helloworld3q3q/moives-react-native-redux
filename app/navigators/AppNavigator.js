@@ -9,7 +9,7 @@ import soonshow from '../containers/soonshow/index';
 import nearcinemas from '../containers/nearcinemas/index';
 import hotshow from '../containers/hotshow/index';
 import Loading from '../compoments/comm/loading'
-import { fetchLoading, initHotshow } from '../actions/hotshow-action';
+import { fetchLoading, initHotshow, navigator, soonshowNav } from '../actions/hotshow-action';
 
 export const AppNavigator = TabNavigator({
 	Hotshow: {screen: hotshow, navigationOptions: {
@@ -74,12 +74,6 @@ export const AppNavigator = TabNavigator({
 	}
 });
 
-// const AppWithNavigationState = ({dispatch, nav}) => (
-// 	<AppNavigator navigation={
-// 		addNavigationHelpers({dispatch, state:nav})
-// 	} />
-// );
-
 class AppWithNavigationState extends Component{
 	componentWillMount() {
 		let _that = this;
@@ -100,18 +94,12 @@ class AppWithNavigationState extends Component{
 			<View style={{flex: 1}}>
 				{this.props.fetchbool ? <Loading/> : 
 					<AppNavigator navigation={
-						addNavigationHelpers({dispatch: this.props.dispatch, 
+						addNavigationHelpers({dispatch: this.props.navigator, 
 							state: this.props.nav})
 					}/>
 				}
 			</View>
 		)
-		// return(
-		// 	<AppNavigator navigation={
-		// 			addNavigationHelpers({dispatch: this.props.dispatch, 
-		// 				state: this.props.nav})
-		// 		}/>
-		// )
 	}
 }
 
@@ -123,7 +111,9 @@ function mapStateToProeps(state){
 };
 function macthDispatchToProps(dispatch) {
     return bindActionCreators({
+		navigator: navigator,
 		initHotshowAction: initHotshow,
+		soonshowNav: soonshowNav
 	}, dispatch);
 }
 

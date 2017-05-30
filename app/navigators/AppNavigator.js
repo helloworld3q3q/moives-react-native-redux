@@ -84,16 +84,13 @@ class AppWithNavigationState extends Component{
 	}
 
 	shouldComponentUpdate(nextProps, nextState) {
-		let { fetchbool, nav } = this.props;
-		if (fetchbool !== nextProps.fetchbool) {
-			return true;
-		} else if(nav.index !== nextProps.nav.index) {
-			return true;
-		} else {
-			return false;
-		}
+		return this._updateBoolean(nextProps, nextState);
 	}
 	componentWillUpdate(nextProps, nextState) {
+		return this._updateBoolean(nextProps, nextState);
+	}
+
+	_updateBoolean(nextProps, nextState) {
 		let { fetchbool, nav } = this.props;
 		if (fetchbool !== nextProps.fetchbool) {
 			return true;
@@ -103,8 +100,8 @@ class AppWithNavigationState extends Component{
 			return false;
 		}
 	}
+
 	render() {
-		console.log(1);
 		return(
 			<View style={{flex: 1}}>
 				{this.props.fetchbool ? <Loading/> : 

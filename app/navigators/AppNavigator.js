@@ -9,7 +9,7 @@ import soonshow from '../containers/soonshow/index';
 import nearcinemas from '../containers/nearcinemas/index';
 import hotshow from '../containers/hotshow/index';
 import Loading from '../compoments/comm/loading'
-import { fetchLoading, initHotshow, navigator, soonshowNav } from '../actions/hotshow-action';
+import { fetchLoading, initHotshow, navigator } from '../actions/hotshow-action';
 
 export const AppNavigator = TabNavigator({
 	Hotshow: {screen: hotshow, navigationOptions: {
@@ -84,12 +84,27 @@ class AppWithNavigationState extends Component{
 	}
 
 	shouldComponentUpdate(nextProps, nextState) {
-		return this.props.fetchbool !== nextProps.fetchbool;
+		let { fetchbool, nav } = this.props;
+		if (fetchbool !== nextProps.fetchbool) {
+			return true;
+		} else if(nav.index !== nextProps.nav.index) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 	componentWillUpdate(nextProps, nextState) {
-		return this.props.fetchbool !== nextProps.fetchbool;
+		let { fetchbool, nav } = this.props;
+		if (fetchbool !== nextProps.fetchbool) {
+			return true;
+		} else if(nav.index !== nextProps.nav.index) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 	render() {
+		console.log(1);
 		return(
 			<View style={{flex: 1}}>
 				{this.props.fetchbool ? <Loading/> : 
@@ -106,14 +121,13 @@ class AppWithNavigationState extends Component{
 function mapStateToProeps(state){
 	return {
 		fetchbool: state.fetchload.data,
-		nav: state.nav,
+		nav: state.nav
 	}
 };
 function macthDispatchToProps(dispatch) {
     return bindActionCreators({
 		navigator: navigator,
 		initHotshowAction: initHotshow,
-		soonshowNav: soonshowNav
 	}, dispatch);
 }
 

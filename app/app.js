@@ -6,6 +6,7 @@
  * @desc [description]
 */
 import { createStore, applyMiddleware, compose  } from 'redux';
+//import { View, TextPropertiesAndroid }  from 'react-native';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk'
 import React, { Component } from 'react';
@@ -13,6 +14,7 @@ import Root from './containers/root';
 import allReducers from './reducers/allReducers';
 import { initHotshow, fetchLoading } from './actions/hotshow-action';
 import AppWithNavigationState from './navigators/AppNavigator'
+import { addNavigationHelpers, TabNavigator, StackNavigator  } from 'react-navigation';
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 const store = createStoreWithMiddleware(allReducers);

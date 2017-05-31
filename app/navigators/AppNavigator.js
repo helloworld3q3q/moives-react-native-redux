@@ -75,10 +75,12 @@ export const AppNavigator = TabNavigator({
 });
 
 class AppWithNavigationState extends Component{
-	componentWillMount() {
+	componentDidMount() {
 		let _that = this;
+		_that.props.initHotshowAction();
 		let time = setTimeout(function(){
-			_that.props.initHotshowAction();
+			//_that.props.initHotshowAction();
+			_that.props.fetchLoading(false);
 			clearTimeout(time);
 		}, 1500);
 	}
@@ -102,6 +104,7 @@ class AppWithNavigationState extends Component{
 	}
 
 	render() {
+		console.log(1)
 		return(
 			<View style={{flex: 1}}>
 				{this.props.fetchbool ? <Loading/> : 
@@ -125,6 +128,7 @@ function macthDispatchToProps(dispatch) {
     return bindActionCreators({
 		navigator: navigator,
 		initHotshowAction: initHotshow,
+		fetchLoading: fetchLoading
 	}, dispatch);
 }
 

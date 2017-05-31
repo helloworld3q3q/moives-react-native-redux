@@ -18,7 +18,7 @@ import { addNavigationHelpers, TabNavigator, StackNavigator  } from 'react-navig
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 const store = createStoreWithMiddleware(allReducers);
-//初始化 进入等待
+//初始化 进入等待 首屏数据 ajax请求
 store.dispatch(fetchLoading(true));
 
 class App extends Component {

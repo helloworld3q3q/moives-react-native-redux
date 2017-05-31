@@ -22,7 +22,7 @@ export function hotshowFetch(action) {
 		fetch(hotshow).then(res => res.json())
 		.then(json => {
 			dispatch(action(json));
-			dispatch(fetchLoading(false));
+			//dispatch(fetchLoading(false));
 		}).catch(msg => console.log('hotshowList-err  '+ msg));
 	}
 }

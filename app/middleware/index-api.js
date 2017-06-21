@@ -10,10 +10,10 @@
 // const usshow = 'https://api.douban.com/v2/movie/us_box';
 // const nearcinemas = 'http://m.maoyan.com/cinemas.json';
 
-const hotshow = 'http://192.168.1.91:8080/weixin/hotshow.json';
-const sonshow = 'http://192.168.1.91:8080/weixin/sonshow.json';
-const usshow = 'http://192.168.1.9:8080/weixin/usshow.json';
-const nearcinemas = 'http://192.168.1.9:8080/weixin/nearcinemas.json';
+const hotshow = 'http://192.168.0.103:8080/weixin/hotshow.json';
+const sonshow = 'http://192.168.0.103:8080/weixin/sonshow.json';
+const usshow = 'http://192.168.0.103:8080/weixin/usshow.json';
+const nearcinemas = 'http://192.168.0.103:8080/weixin/nearcinemas.json';
 
 import { initHotshow, fetchLoading } from '../actions/hotshow-action';
 

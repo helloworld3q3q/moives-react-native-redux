@@ -77,6 +77,7 @@ export const AppNavigator = TabNavigator({
 class AppWithNavigationState extends Component{
 	componentDidMount() {
 		let _that = this;
+		//首页请求
 		_that.props.initHotshowAction();
 		let time = setTimeout(function(){
 			//_that.props.initHotshowAction();
@@ -104,7 +105,6 @@ class AppWithNavigationState extends Component{
 	}
 
 	render() {
-		console.log(1)
 		return(
 			<View style={{flex: 1}}>
 				{this.props.fetchbool ? <Loading/> : 

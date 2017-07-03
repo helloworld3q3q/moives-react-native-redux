@@ -26,3 +26,14 @@ export function hotshowFetch(action) {
 		}).catch(msg => console.log('hotshowList-err  '+ msg));
 	}
 }
+
+export function usFetch(action) {
+	return (dispatch) => {
+		fetch(usshow).then(res => res.json())
+		.then(json => {
+			dispatch(action(json));
+			console.log(json);
+			//dispatch(fetchLoading(false));
+		}).catch(msg => console.log('usshowList-err  '+ msg));
+	}
+}

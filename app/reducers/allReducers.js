@@ -6,7 +6,8 @@
  * @desc [description]
 */
 import { combineReducers } from 'redux';
-import { HotShowList, Banner, fetchLoading } from './hotshow/reducers'
+import { HotShowList, Banner, fetchLoading } from './hotshow/reducers';
+import { usShow } from './usshow/reducers';
 import { nav } from './navigators/index'
 
 const allReducers = combineReducers({
@@ -14,6 +15,7 @@ const allReducers = combineReducers({
 	banner: Banner,
 	fetchload: fetchLoading,
 	nav: nav,
+	usshow: usShow,
 });
 
 export default allReducers;

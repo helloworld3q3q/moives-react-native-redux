@@ -10,6 +10,7 @@ import { View, ScrollView, Text }  from 'react-native';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { size } from '../../util/style';
+import { fetchLoading, initUsShow } from '../../actions/hotshow-action';
 
 class usshow extends Component{
 	render() {
@@ -17,6 +18,23 @@ class usshow extends Component{
 			<Text>usshow</Text>
 		);
 	}
+
+	componentDidMount() {
+		this.props.initUsShowAction();
+	}
 }
 
-module.exports = usshow;
+function mapStateToProps(state) {
+	return {
+		usshow: state.usshow.data
+    }
+}
+function macthDispatchToProps(dispatch) {
+    return bindActionCreators({
+		fetchLoading: fetchLoading,
+		initUsShowAction: initUsShow
+	}, dispatch);
+}
+
+export default connect(mapStateToProps, macthDispatchToProps)(usshow);
+//export default usshow

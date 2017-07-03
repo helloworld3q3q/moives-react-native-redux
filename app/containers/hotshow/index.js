@@ -11,23 +11,11 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { size } from '../../util/style';
 import HotShowList from './hotshow-list';
-import Loading from '../../compoments/comm/loading'
-import { fetchLoading, initHotshow } from '../../actions/hotshow-action';
+import Loading from '../../compoments/comm/loading';
+import { initHotshow } from '../../actions/hotshow-action';
 
 class hotshow extends Component {
 
-	// componentWillMount() {
-	// 	let _that = this;
-	// 	let time = setTimeout(function(){
-	// 		_that.props.initHotshowAction();
-	// 		clearTimeout(time);
-	// 	}, 1500);
-	// }
-	// render() {
-	// 	return (<View >
-	// 			{this.props.fetchbool ? <Loading/> : <HotShowList/> }
-	// 		</View>);
-	// }
 	render() {
 		return <HotShowList/>;
 	}
@@ -38,10 +26,12 @@ function mapStateToProps(state) {
 		hotshows: state.hotshows.data
     }
 }
-function macthDispatchToProps(dispatch) {
-    return bindActionCreators({
-		initHotshowAction: initHotshow,
-	}, dispatch);
-}
+// function macthDispatchToProps(dispatch) {
+//     return bindActionCreators({
+// 		initHotshowAction: initHotshow,
+// 	}, dispatch);
+// }
 //export default connect(mapStateToProps, macthDispatchToProps)(hotshow);
-export default connect(mapStateToProps)(hotshow);
+//export default connect(mapStateToProps)(hotshow);
+
+export default hotshow;

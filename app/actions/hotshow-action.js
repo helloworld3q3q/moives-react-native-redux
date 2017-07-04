@@ -36,17 +36,6 @@ export const initHotshow = () => {
 	return initFetch(addList)(hotshow);
 }
 
-//请求正在热映
-export const usList = (data) => {
-	return {
-		type: USSHOW_LIST,
-		data
-	}
-}
-export const initUsShow = () => {
-	return initFetch(usList)(usshow);
-}
-
 //导航 action onpress
 export const navigator = (nav, type) => {
 	return {

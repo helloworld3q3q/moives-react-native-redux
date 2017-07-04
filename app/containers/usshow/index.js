@@ -10,7 +10,7 @@ import { View, ScrollView, Text }  from 'react-native';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { size } from '../../util/style';
-import { fetchLoading, initUsShow } from '../../actions/hotshow-action';
+import { initUsShow } from '../../actions/usshow-action';
 
 class usshow extends Component{
 	render() {
@@ -31,7 +31,6 @@ function mapStateToProps(state) {
 }
 function macthDispatchToProps(dispatch) {
     return bindActionCreators({
-		fetchLoading: fetchLoading,
 		initUsShowAction: initUsShow
 	}, dispatch);
 }

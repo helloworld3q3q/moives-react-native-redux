@@ -5,7 +5,7 @@ export const usShow = (state = {}, action) => {
 		case USSHOW_LIST:
 			return Object.assign(
 			{} , state , {
-				data : action
+				data : action.data
 			});
 		default:
 		return state;

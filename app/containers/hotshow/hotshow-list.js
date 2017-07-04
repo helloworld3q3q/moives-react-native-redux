@@ -6,7 +6,7 @@ import { addBanner } from '../../actions/hotshow-action';
 import Loading from '../../compoments/comm/loading';
 import Item from '../../compoments/hotshow/item';
 import Banner from './banner-ctn';
-import Foot from '../../compoments/comm/foot';
+//import Foot from '../../compoments/comm/foot';
 import { size } from '../../util/style';
 
 class HotShowList extends Component {

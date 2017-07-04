@@ -74,7 +74,7 @@ export const AppNavigator = TabNavigator({
 	}
 });
 
-class AppWithNavigationState extends Component{
+class AppWithNavigationState extends Component {
 	componentDidMount() {
 		let _that = this;
 		//首页请求

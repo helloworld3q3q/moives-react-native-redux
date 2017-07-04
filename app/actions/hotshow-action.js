@@ -6,7 +6,8 @@
  * @desc [description]
 */
 import { HOTSHOW_BANNER, HOTSHOW_LIST, HOTSHOW_FETCH, ADDMORE, USSHOW_LIST } from './types';
-import { hotshowFetch, usFetch } from '../middleware/index-api';
+import { initFetch } from '../middleware/index-api';
+import { hotshow, sonshow, usshow, nearcinemas } from '../middleware/api';
 
 //添加轮播
 export const addBanner = (data) => {
@@ -32,7 +33,7 @@ export const addList = (data) => {
 
 // 正在热映 初始请求
 export const initHotshow = () => {
-	return hotshowFetch(addList);
+	return initFetch(addList)(hotshow);
 }
 
 //请求正在热映
@@ -43,7 +44,7 @@ export const usList = (data) => {
 	}
 }
 export const initUsShow = () => {
-	return usFetch(usList);
+	return initFetch(usList)(usshow);
 }
 
 //导航 action onpress

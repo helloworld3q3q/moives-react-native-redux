@@ -1,6 +1,6 @@
-import { HOTSHOW_BANNER, HOTSHOW_LIST, HOTSHOW_FETCH, ADDMORE, USSHOW_LIST } from './types';
+import { USSHOW_LIST } from './types';
 import { initFetch } from '../middleware/index-api';
-import { hotshow, sonshow, usshow, nearcinemas } from '../middleware/api';
+import { usshow } from '../middleware/api';
 
 //北美排行榜
 export const usList = (data) => {

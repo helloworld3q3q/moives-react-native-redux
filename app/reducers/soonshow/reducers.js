@@ -1,8 +1,8 @@
-import { USSHOW_LIST } from '../../actions/types';
+import { SOONSHOW_LIST } from '../../actions/types';
 
-export const usShow = (state = {}, action) => {
+export const soonShow = (state = {}, action) => {
 	switch (action.type) {
-		case USSHOW_LIST:
+		case SOONSHOW_LIST:
 			return Object.assign(
 			{} , state , {
 				data : action.data

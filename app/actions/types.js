@@ -14,3 +14,5 @@ export const HOTSHOW_FETCH = 'HOTSHOW_FETCH';
 export const ADDMORE = 'AddMORE';
 //北美
 export const USSHOW_LIST = 'USSHOW_LIST';
+//即将上映
+export const SOONSHOW_LIST = 'SOONSHOW_LIST';

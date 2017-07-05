@@ -28,14 +28,17 @@ const initialNavState = {
     {
       key: 'usshow',
       routeName:'Usshow',
+      index: 1,
     },
     {
       key: 'soonshow',
       routeName:'Soonshow',
+      index: 2,
     },
     {
       key: 'nearcinemas',
       routeName:'Nearcinemas',
+      index: 3,
     },
   ],
 };
@@ -44,29 +47,38 @@ export const nav = (state = initialNavState, action) => {
   let nextState;
   switch (action.type) {
     case 'Usshow':
+      state.index = 1;
       nextState = AppNavigator.router.getStateForAction(
           NavigationActions.navigate({ routeName: 'Usshow' }),
           state
       );
       break;
     case 'Soonshow':
+      state.index = 2;
       nextState = AppNavigator.router.getStateForAction(
         NavigationActions.navigate({ routeName: 'Soonshow' }),
         state
       );
       break;
     case 'Nearcinemas':
+      state.index = 3;
       nextState = AppNavigator.router.getStateForAction(
         NavigationActions.navigate({ routeName: 'Nearcinemas' }),
         state
       );
       break;
-    default:
+    case 'Hotshow':
       //nextState = AppNavigator.router.getStateForAction(action, state);
+      // nextState = AppNavigator.router.getStateForAction(
+      //   state
+      // );
+      state.index = 0;
       nextState = AppNavigator.router.getStateForAction(
+        NavigationActions.navigate({ routeName: 'Hotshow' }),
         state
       );
       break;
   }
+  
   return nextState || state;
 }

@@ -78,12 +78,12 @@ class AppWithNavigationState extends Component {
 	componentDidMount() {
 		let _that = this;
 		//首页请求
-		_that.props.initHotshowAction();
-		let time = setTimeout(function(){
-			//_that.props.initHotshowAction();
-			_that.props.fetchLoading(false);
-			clearTimeout(time);
-		}, 1500);
+		 this.props.initHotshowAction();
+		// let time = setTimeout(function(){
+		// 	//_that.props.initHotshowAction();
+		// 	_that.props.fetchLoading(false);
+		// 	clearTimeout(time);
+		// }, 1500);
 	}
 
 	shouldComponentUpdate(nextProps, nextState) {

@@ -14,20 +14,10 @@ import UsList from './us-list';
 import Wait from '../../compoments/comm/wait';
 
 class usshow extends Component{
-	componentWillMount() {
+	componentDidMount() {
 		this.props.initUsShowAction();
 	}
-
-	shouldComponentUpdate(nextProps, nextState) {
-		//防止滑动到其他页面 触发 render
-		let nav = nextProps.nav;
-		if (this.props.usshow === undefined) {
-			return false;
-		} else {
-			return nav.index === 1;
-		}
-	}
-
+	
 	render() {
 		return this.props.usshow ? <UsList /> : <Wait/>;
 	}
@@ -35,7 +25,6 @@ class usshow extends Component{
 
 function mapStateToProps(state) {
 	return {
-		state: state,
 		nav: state.nav,
 		usshow: state.usshow.data
     }

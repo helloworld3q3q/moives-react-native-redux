@@ -8,19 +8,10 @@
 import React, { Component } from 'react';
 import { Text, View, Image, StyleSheet } from 'react-native';
 import { size } from '../../util/style';
+import { renderStars } from '../comm/renderstars';
 
 class item extends Component{
-	_renderStart(val) {
-		let start = [], ary = val.split('');
-		for(let i = 0; i < ary[0]; i++) {
-			start.push('★');
-		}
-		if (ary[1] !== '0') {
-			start.push('☆');
-		} 
-		return start;
-	}
-	
+
 	_renderCasts(ary) {
 		let list = [];
 		for(let i = 0, item; item = ary[i++];) {
@@ -51,8 +42,8 @@ class item extends Component{
 						<Text style={style.rating}>最低分:{subject.rating.min}</Text>
 						<Text style={style.rating}>平均分:{subject.rating.min}</Text>
 					</View>
-					<Text >评星:<Text style={style.start}>{this._renderStart(subject.rating.stars)}</Text></Text>
-					<Text>类型:{subject.genres.join(',')}</Text>
+					<Text>评星:<Text style={style.start}>{renderStars(subject.rating.stars)}</Text></Text>
+					<Text style={{fontSize: 12}}>类型:{subject.genres.join(',')}</Text>
 					<View style={style.castlist}>{this._renderCasts(subject.casts)}</View>
 				</View>
 			</View>

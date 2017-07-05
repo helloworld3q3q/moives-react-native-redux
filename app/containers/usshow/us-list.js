@@ -23,20 +23,12 @@ class UsList extends Component {
         });
 	}
 
-	_renderRow(data) {
-        return (
-			<Item data={data}/>
-        );
-    }
-
 	render() {
-		
-
 		return (
-			<View>
+			<View style={{paddingBottom: 24}}>
 				<Text style={style.title}>{ this.props.date }</Text>
 				<ListView dataSource={this.state.dataSource}  
-				renderRow={this._renderRow.bind(this)}/>
+				renderRow={(rowData) => <Item data={rowData}/>}/>
 			</View> 
 		);
 	}

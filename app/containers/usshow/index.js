@@ -6,12 +6,12 @@
  * @desc [description]
 */
 import React, { Component } from 'react';
-import { View, ScrollView, Text }  from 'react-native';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { size } from '../../util/style';
 import { initUsShow } from '../../actions/usshow-action';
 import UsList from './us-list';
+import Wait from '../../compoments/comm/wait';
 
 class usshow extends Component{
 	componentWillMount() {
@@ -29,7 +29,7 @@ class usshow extends Component{
 	}
 
 	render() {
-		return this.props.usshow ? <UsList /> : <Text>LOADING</Text>;
+		return this.props.usshow ? <UsList /> : <Wait/>;
 	}
 }
 

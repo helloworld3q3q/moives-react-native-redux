@@ -6,18 +6,18 @@
  * @desc [description]
 */
 import React, { Component } from 'react';
-import { View, ScrollView }  from 'react-native';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { size } from '../../util/style';
 import HotShowList from './hotshow-list';
 import Loading from '../../compoments/comm/loading';
 import { initHotshow } from '../../actions/hotshow-action';
+import Wait from '../../compoments/comm/wait';
 
 class hotshow extends Component {
 
 	render() {
-		return <HotShowList/>;
+		return this.props.hotshows ? <HotShowList/> : <Wait/>;
 	}
 }
 function mapStateToProps(state) {
@@ -32,6 +32,6 @@ function mapStateToProps(state) {
 // 	}, dispatch);
 // }
 //export default connect(mapStateToProps, macthDispatchToProps)(hotshow);
-//export default connect(mapStateToProps)(hotshow);
+export default connect(mapStateToProps)(hotshow);
 
-export default hotshow;
+//export default hotshow;

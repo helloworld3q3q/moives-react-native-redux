@@ -24,7 +24,6 @@ class item extends Component{
 	_renderCasts(ary) {
 		let list = [];
 		for(let i = 0, item; item = ary[i++];) {
-			console.log(item.avatars.medium)
 			list.push(
 				<View key={i} style={style.castitem}>
 					<Image style={{width: 56.5, height: 80 }} resizeMode='stretch' 

@@ -6,6 +6,7 @@
  * @desc [description]
 */
 import React, { Component } from 'react';
+import { View } from 'react-native';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { size } from '../../util/style';
@@ -14,24 +15,27 @@ import UsList from './us-list';
 import Wait from '../../compoments/comm/wait';
 
 class usshow extends Component{
-	componentDidMount() {
+	componentWillMount() {
 		this.props.initUsShowAction();
 	}
-	
+
 	render() {
-		return this.props.usshow ? <UsList /> : <Wait/>;
+		return ( 
+		<View style={{height: size.height, width:size.width, paddingBottom: 70}}> 
+			{this.props.usshow ? <UsList /> : <Wait/>}
+		</View>);
 	}
 }
 
 function mapStateToProps(state) {
 	return {
 		nav: state.nav,
-		usshow: state.usshow.data
+		usshow: state.usshow.data,
     }
 }
 function macthDispatchToProps(dispatch) {
     return bindActionCreators({
-		initUsShowAction: initUsShow
+		initUsShowAction: initUsShow,
 	}, dispatch);
 }
 

@@ -51,6 +51,7 @@ export const AppNavigator = TabNavigator({
 }, {
 	tabBarPosition: 'bottom',
 	lazy: true,
+	initialRouteName: 'Hotshow',
 	tabBarOptions: {
 		showIcon: true,
 		pressOpacity: 0.8,
@@ -95,6 +96,7 @@ class AppWithNavigationState extends Component {
 
 	_updateBoolean(nextProps, nextState) {
 		let { fetchbool, nav } = this.props;
+		
 		if (fetchbool !== nextProps.fetchbool) {
 			return true;
 		} else if(nav.index !== nextProps.nav.index) {

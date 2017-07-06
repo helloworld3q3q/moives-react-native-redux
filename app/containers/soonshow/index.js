@@ -12,19 +12,20 @@ import { connect } from 'react-redux';
 import { initSoonShow } from '../../actions/soonshow-action';
 import { size } from '../../util/style';
 import Wait from '../../compoments/comm/wait';
+import SoonList from './soon-list';
 
 class soonshow extends Component{
-	componentDidMount() {
+	componentWillMount() {
 		this.props.initSoonShowAction();
 	}
 
 	render() {
-		return(
-			<Text>soon</Text>
-		);
+		return ( 
+		<View style={{height: size.height, width:size.width, paddingBottom: 70}}> 
+			{this.props.soonshow ? <SoonList/> : <Wait/>}
+		</View>);
 	}
 }
-
 
 function mapStateToProps(state) {
 	return {

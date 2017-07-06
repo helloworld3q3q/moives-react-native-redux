@@ -6,32 +6,38 @@
  * @desc [description]
 */
 import React, { Component } from 'react';
+import { View } from 'react-native';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { size } from '../../util/style';
 import HotShowList from './hotshow-list';
 import Loading from '../../compoments/comm/loading';
 import { initHotshow } from '../../actions/hotshow-action';
+import { initUsShow } from '../../actions/usshow-action';
 import Wait from '../../compoments/comm/wait';
 
 class hotshow extends Component {
 
 	render() {
-		return this.props.hotshows ? <HotShowList/> : <Wait/>;
+		return ( 
+		<View style={{height: size.height, width:size.width, paddingBottom: 70}}> 
+			{this.props.hotshows ? <HotShowList/> : <Wait/>}
+		</View>);
 	}
+
 }
 function mapStateToProps(state) {
     return {
-       // fetchbool: state.fetchload.data,
 		hotshows: state.hotshows.data
     }
 }
 // function macthDispatchToProps(dispatch) {
 //     return bindActionCreators({
 // 		initHotshowAction: initHotshow,
+// 		initUsShowAction: initUsShow,
 // 	}, dispatch);
 // }
-//export default connect(mapStateToProps, macthDispatchToProps)(hotshow);
+// export default connect(mapStateToProps, macthDispatchToProps)(hotshow);
 export default connect(mapStateToProps)(hotshow);
 
 //export default hotshow;

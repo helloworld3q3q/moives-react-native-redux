@@ -11,9 +11,77 @@ import { size } from '../../util/style';
 
 class item extends Component{
 
+	_renderCinemasList(data) {
+		let ary = [];
+
+		for (let i in data) {
+			let item = data[i];
+			console.log(item);
+			ary.push(
+				<View key={i} style={style.addrItem}>
+					<View style={style.row}>
+						<Image resizeMode='contain' style={style.icon}  
+							source={require('../../icon/icon_cinema.png')} />
+						<Text style={style.name}>影院:{item.nm}</Text>
+					</View>
+					<View style={style.row}>
+						<Image resizeMode='contain' style={style.icon}  
+							source={require('../../icon/icon_addr.png')} />
+						<Text style={style.addr}>地址:{item.addr}</Text>
+					</View>
+				</View>
+			);
+		}
+		return ary;
+	}
+
 	render() {
-		return <Text>3213</Text>
+		let data = this.props.data;
+		return (
+			<View style={style.item}>
+				<Text style={style.area}>{data[0].area}</Text>
+				<View>
+					{ this._renderCinemasList(data) }
+				</View>
+			</View>
+		)
 	}
 }
+
+let style = StyleSheet.create({
+	item: {
+		flex: 1,
+		paddingHorizontal: 4,
+		borderTopWidth: 5,
+		borderColor: '#ececec',
+		backgroundColor: '#fdfdfd'
+	},
+	row: {
+		flexDirection: 'row',
+		marginVertical: 2,
+	},
+	addrItem: {
+		paddingVertical: 4,
+		borderTopWidth: 0.8,
+		borderColor: '#ffef7d',
+	},
+	area: {
+		fontSize: 16,
+		paddingVertical: 6
+	},
+	addr: {
+		flex: 1,
+		fontSize: 12,
+	},
+	name: {
+		paddingTop: 1,
+	},
+	icon: {
+		marginTop: 2,
+		marginRight: 3,
+		height: 18,
+		width: 18,
+	}
+});
 
 module.exports = item;

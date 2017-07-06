@@ -17,6 +17,9 @@ import { initUsShow } from '../../actions/usshow-action';
 import Wait from '../../compoments/comm/wait';
 
 class hotshow extends Component {
+	// componentDidMount() {
+	// 	//this.props.initUsShowAction();
+	// }
 
 	render() {
 		return ( 

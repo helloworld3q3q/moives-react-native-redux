@@ -5,17 +5,17 @@
  * @modify date 2017-07-06 05:49:01
  * @desc [description]
 */
-import CINEMAS_LIST from './types';
-import initFetch from '../middleware/index-api';
-import nearcinemas from '../middleware/api';
+import { CINEMAS_LIST } from './types';
+import { initFetch } from '../middleware/index-api';
+import { nearcinemas } from '../middleware/api';
 
 export const cinemasList = (data) => {
 	return {
-		types: CINEMAS_LIST,
+		type: CINEMAS_LIST,
 		data
 	}
 }
 
 export const initCinemas = () => {
-	return cinemasList(cinemasList)(nearcinemas);
+	return initFetch(cinemasList)(nearcinemas);
 }

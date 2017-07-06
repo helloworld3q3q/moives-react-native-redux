@@ -7,10 +7,12 @@
 */
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
+import { View, ScrollView, Text }  from 'react-native';
 import { connect } from 'react-redux';
 import { size } from '../../util/style';
 import Wait from '../../compoments/comm/wait';
-import initCinemas from '../../actions/cinemas-action';
+import { initCinemas } from '../../actions/cinemas-action';
+import CinemasList from './cinemas-list';
 
 class nearcinemas extends Component {
 	componentWillMount() {
@@ -18,23 +20,24 @@ class nearcinemas extends Component {
 	}
 
 	render() {
-		console.log(this.props.cinemas);
 		return(
-			<Text>near</Text>
+			<View style={{height: size.height, width:size.width, paddingBottom: 70}}> 
+				{this.props.cinemas ? <CinemasList/>: <Wait/>}
+			</View>
 		);
 	}
 }
 
-function mapStatToProps(state) {
+function mapStateToProps(state) {
 	return {
-		cinemas: state.cinemas
+		cinemas: state.cinemas.data
 	}
 }
 
-function matchDispatchToProps() {
+function matchDispatchToProps(dispatch) {
 	return bindActionCreators({
 		initCinemasAction: initCinemas
-	});
+	}, dispatch);
 }
 
-module.exports = connect(mapStatToProps, matchDispatchToProps)(nearcinemas);
+module.exports = connect(mapStateToProps, matchDispatchToProps)(nearcinemas);

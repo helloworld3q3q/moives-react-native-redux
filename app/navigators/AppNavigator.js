@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { StyleSheet, Image, View, Text } from 'react-native';
-import { addNavigationHelpers, TabNavigator  } from 'react-navigation';
+import { addNavigationHelpers, TabNavigator, StackNavigator  } from 'react-navigation';
 import { bindActionCreators } from 'redux';
 import { size } from '../util/style';
 import usshow from '../containers/usshow/index';
 import soonshow from '../containers/soonshow/index';
 import nearcinemas from '../containers/nearcinemas/index';
 import hotshow from '../containers/hotshow/index';
-import Loading from '../compoments/comm/loading'
 import { fetchLoading, initHotshow, navigator } from '../actions/hotshow-action';
+import  DtlWebView  from '../containers/webview/dtl-webview';
 
+//tab
 export const AppNavigator = TabNavigator({
 	Hotshow: {screen: hotshow, navigationOptions: {
 		tabBarLabel: '热映',
@@ -74,65 +75,25 @@ export const AppNavigator = TabNavigator({
 		},
 	}
 });
-
-class AppWithNavigationState extends Component {
-	componentDidMount() {
-		let _that = this;
-		//首页请求
-		 this.props.initHotshowAction();
-		// let time = setTimeout(function(){
-		// 	//_that.props.initHotshowAction();
-		// 	_that.props.fetchLoading(false);
-		// 	clearTimeout(time);
-		// }, 1500);
+//StackNavigator
+export const Navigator = StackNavigator(
+  {  
+	Tab:{screen: AppNavigator},  
+	Product:{screen: DtlWebView}  
+  },  
+  {  
+    navigationOptions:{  
+		header: null,
+		headerBackTitle:null,  
+		headerTintColor:'#333333',  
+		showIcon:true,  
+		swipeEnabled:false,  
+		animationEnabled:false,
+		initialRouteName: 'Hotshow'
+	},  
+    	mode:'card',
 	}
-
-	shouldComponentUpdate(nextProps, nextState) {
-		return this._updateBoolean(nextProps, nextState);
-	}
-	componentWillUpdate(nextProps, nextState) {
-		return this._updateBoolean(nextProps, nextState);
-	}
-
-	_updateBoolean(nextProps, nextState) {
-		let { fetchbool, nav } = this.props;
-		
-		if (fetchbool !== nextProps.fetchbool) {
-			return true;
-		} else if(nav.index !== nextProps.nav.index) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	render() {
-		return(
-			<View style={{flex: 1}}>
-				{this.props.fetchbool ? <Loading/> : 
-					<AppNavigator navigation={
-						addNavigationHelpers({dispatch: this.props.navigator, 
-							state: this.props.nav})
-					}/>
-				}
-			</View>
-		)
-	}
-}
-
-function mapStateToProeps(state){
-	return {
-		fetchbool: state.fetchload.data,
-		nav: state.nav
-	}
-};
-function macthDispatchToProps(dispatch) {
-    return bindActionCreators({
-		navigator: navigator,
-		initHotshowAction: initHotshow,
-		fetchLoading: fetchLoading
-	}, dispatch);
-}
+);
 
 let style = StyleSheet.create({
 	footImage: {
@@ -140,6 +101,3 @@ let style = StyleSheet.create({
 		height: 25
 	},
 });
-
-
-export default connect(mapStateToProeps, macthDispatchToProps)(AppWithNavigationState);

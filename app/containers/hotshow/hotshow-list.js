@@ -31,13 +31,14 @@ class HotShowList extends Component {
     }
 
     _renderList() {
-        let { hotshows } = this.props;
-        let ary = hotshows.data.subjects, subsAry = [], row=[];
+        let { hotshows } = this.props,
+            ary = hotshows.data.subjects, subsAry = [], row=[],
+            _that = this;
         row.push(<Banner/>);
         for(let i = 0, item; item = ary[i++];) {
             //一行两个
             subsAry.push(
-                <Item key={i} rank={i} data={item}/>
+                <Item key={i} rank={i} data={item} navigation={this.props.navigation} />
             );
             if(subsAry.length == 2) {
                 row.push(subsAry);
@@ -59,7 +60,8 @@ class HotShowList extends Component {
 
 function mapStateToProps(state) {
     return {
-        hotshows: state.hotshows
+        hotshows: state.hotshows,
+        navigation: state.navigation.data
     }
 }
 function macthDispatchToProps(dispatch) {

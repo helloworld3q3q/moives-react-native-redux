@@ -16,7 +16,6 @@ class item extends Component{
 
 		for (let i in data) {
 			let item = data[i];
-			console.log(item);
 			ary.push(
 				<View key={i} style={style.addrItem}>
 					<View style={style.row}>

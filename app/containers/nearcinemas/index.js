@@ -12,19 +12,17 @@ import { connect } from 'react-redux';
 import { size } from '../../util/style';
 import Wait from '../../compoments/comm/wait';
 import { initCinemas } from '../../actions/cinemas-action';
+import { navigation } from '../../actions/hotshow-action';
 import CinemasList from './cinemas-list';
 
 class nearcinemas extends Component {
 	componentWillMount() {
 		this.props.initCinemasAction();
+		this.props.navigationAction(this.props.navigation);
 	}
 
 	render() {
-		return(
-			<View style={{height: size.height, width:size.width, paddingBottom: 70}}> 
-				{this.props.cinemas ? <CinemasList/>: <Wait/>}
-			</View>
-		);
+		return this.props.cinemas ? <CinemasList/>: <Wait/>;
 	}
 }
 
@@ -36,7 +34,8 @@ function mapStateToProps(state) {
 
 function matchDispatchToProps(dispatch) {
 	return bindActionCreators({
-		initCinemasAction: initCinemas
+		initCinemasAction: initCinemas,
+		navigationAction: navigation,
 	}, dispatch);
 }
 

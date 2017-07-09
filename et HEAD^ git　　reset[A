@@ -1,0 +1,239 @@
+[33mcommit 3e98a9224d5d6cd80ec019f805d357dd20c7bc82[m
+Author: helloworld3q3q <helloworld3q3q@gmail.com>
+Date:   Fri Jul 7 17:57:22 2017 +0800
+
+    loadig 移动
+
+[1mdiff --git a/app/app.js b/app/app.js[m
+[1mindex 1fac1b4..e1295fa 100644[m
+[1m--- a/app/app.js[m
+[1m+++ b/app/app.js[m
+[36m@@ -10,12 +10,12 @@[m [mimport { createStore, applyMiddleware, compose  } from 'redux';[m
+ import { Provider } from 'react-redux';[m
+ import thunk from 'redux-thunk'[m
+ import React, { Component } from 'react';[m
+[31m-import Root from './containers/root';[m
+[32m+[m[32m//import Root from './containers/root';[m
+ import allReducers from './reducers/allReducers';[m
+ import { fetchLoading } from './actions/hotshow-action';[m
+[31m-import AppWithNavigationState from './navigators/AppNavigator'[m
+[32m+[m[32mimport { Navigator} from './navigators/AppNavigator';[m
+[32m+[m[32mimport Loading from './compoments/comm/loading'[m
+ import { addNavigationHelpers, TabNavigator, StackNavigator  } from 'react-navigation';[m
+[31m-[m
+ const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);[m
+ const store = createStoreWithMiddleware(allReducers);[m
+ //初始化 进入等待 首屏数据 ajax请求[m
+[36m@@ -25,13 +25,26 @@[m [mclass App extends Component {[m
+ [m
+ 	constructor(props) {[m
+         super(props);[m
+[32m+[m		[32mthis.state = {[m
+[32m+[m			[32mfetchLoading: true[m
+[32m+[m		[32m}[m
+     }[m
+[31m-[m
+[32m+[m	[32mcomponentDidMount() {[m
+[32m+[m		[32mlet _that = this;[m
+[32m+[m		[32mlet time = setTimeout(function() {[m
+[32m+[m			[32m_that.setState({[m
+[32m+[m				[32mfetchLoading: false[m
+[32m+[m			[32m})[m
+[32m+[m			[32mclearTimeout(time)[m
+[32m+[m		[32m}, 1500)[m
+[32m+[m	[32m}[m
+ 	render() {[m
+[32m+[m		[32mconsole.log(this.state)[m
+ 		return ([m
+[31m-			<Provider store={ store }>[m
+[31m-				<AppWithNavigationState />[m
+[31m-			</Provider>[m
+[32m+[m				[32mthis.state.fetchLoading ? <Loading/> :[m
+[32m+[m				[32m<Provider store={ store }>[m
+[32m+[m					[32m<Navigator />[m
+[32m+[m				[32m</Provider>[m
+ 		);[m
+ 	}[m
+ }[m
+[1mdiff --git a/app/containers/hotshow/index.js b/app/containers/hotshow/index.js[m
+[1mindex 2298990..58e1d70 100644[m
+[1m--- a/app/containers/hotshow/index.js[m
+[1m+++ b/app/containers/hotshow/index.js[m
+[36m@@ -17,9 +17,9 @@[m [mimport { initUsShow } from '../../actions/usshow-action';[m
+ import Wait from '../../compoments/comm/wait';[m
+ [m
+ class hotshow extends Component {[m
+[31m-	// componentDidMount() {[m
+[31m-	// 	//this.props.initUsShowAction();[m
+[31m-	// }[m
+[32m+[m	[32mcomponentWillMount() {[m
+[32m+[m		[32mthis.props.initHotshowAction();[m
+[32m+[m	[32m}[m
+ [m
+ 	render() {[m
+ 		return ( [m
+[36m@@ -34,13 +34,9 @@[m [mfunction mapStateToProps(state) {[m
+ 		hotshows: state.hotshows.data[m
+     }[m
+ }[m
+[31m-// function macthDispatchToProps(dispatch) {[m
+[31m-//     return bindActionCreators({[m
+[31m-// 		initHotshowAction: initHotshow,[m
+[31m-// 		initUsShowAction: initUsShow,[m
+[31m-// 	}, dispatch);[m
+[31m-// }[m
+[31m-// export default connect(mapStateToProps, macthDispatchToProps)(hotshow);[m
+[31m-export default connect(mapStateToProps)(hotshow);[m
+[31m-[m
+[31m-//export default hotshow;[m
+[32m+[m[32mfunction macthDispatchToProps(dispatch) {[m
+[32m+[m[32m    return bindActionCreators({[m
+[32m+[m		[32minitHotshowAction: initHotshow,[m
+[32m+[m	[32m}, dispatch);[m
+[32m+[m[32m}[m
+[32m+[m[32mexport default connect(mapStateToProps, macthDispatchToProps)(hotshow);[m
+\ No newline at end of file[m
+[1mdiff --git a/app/containers/webview/dtl-webview.js b/app/containers/webview/dtl-webview.js[m
+[1mnew file mode 100644[m
+[1mindex 0000000..c707cc4[m
+[1m--- /dev/null[m
+[1m+++ b/app/containers/webview/dtl-webview.js[m
+[36m@@ -0,0 +1,19 @@[m
+[32m+[m[32m/**[m
+[32m+[m[32m * @author ling[m
+[32m+[m[32m * @email helloworld3q3q@gmail.com[m
+[32m+[m[32m * @create date 2017-07-07 02:10:22[m
+[32m+[m[32m * @modify date 2017-07-07 02:10:22[m
+[32m+[m[32m * @desc [description][m
+[32m+[m[32m*/[m
+[32m+[m[32mimport React, { Component } from 'react';[m
+[32m+[m[32mimport { WebView, Text } from 'react-native';[m
+[32m+[m
+[32m+[m[32mclass DtlWebView extends Component {[m
+[32m+[m	[32mrender() {[m
+[32m+[m		[32mreturn ([m
+[32m+[m			[32m<Text>213</Text>[m
+[32m+[m		[32m)[m
+[32m+[m	[32m}[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mmodule.exports = DtlWebView;[m
+\ No newline at end of file[m
+[1mdiff --git a/app/navigators/AppNavigator.js b/app/navigators/AppNavigator.js[m
+[1mindex 4c8a07c..60a09c1 100644[m
+[1m--- a/app/navigators/AppNavigator.js[m
+[1m+++ b/app/navigators/AppNavigator.js[m
+[36m@@ -1,16 +1,17 @@[m
+ import React, { Component } from 'react';[m
+ import { connect } from 'react-redux';[m
+ import { StyleSheet, Image, View, Text } from 'react-native';[m
+[31m-import { addNavigationHelpers, TabNavigator  } from 'react-navigation';[m
+[32m+[m[32mimport { addNavigationHelpers, TabNavigator, StackNavigator  } from 'react-navigation';[m
+ import { bindActionCreators } from 'redux';[m
+ import { size } from '../util/style';[m
+ import usshow from '../containers/usshow/index';[m
+ import soonshow from '../containers/soonshow/index';[m
+ import nearcinemas from '../containers/nearcinemas/index';[m
+ import hotshow from '../containers/hotshow/index';[m
+[31m-import Loading from '../compoments/comm/loading'[m
+ import { fetchLoading, initHotshow, navigator } from '../actions/hotshow-action';[m
+[32m+[m[32mimport  DtlWebView  from '../containers/webview/dtl-webview';[m
+ [m
+[32m+[m[32m//tab[m
+ export const AppNavigator = TabNavigator({[m
+ 	Hotshow: {screen: hotshow, navigationOptions: {[m
+ 		tabBarLabel: '热映',[m
+[36m@@ -74,72 +75,29 @@[m [mexport const AppNavigator = TabNavigator({[m
+ 		},[m
+ 	}[m
+ });[m
+[31m-[m
+[31m-class AppWithNavigationState extends Component {[m
+[31m-	componentDidMount() {[m
+[31m-		let _that = this;[m
+[31m-		//首页请求[m
+[31m-		 this.props.initHotshowAction();[m
+[31m-		// let time = setTimeout(function(){[m
+[31m-		// 	//_that.props.initHotshowAction();[m
+[31m-		// 	_that.props.fetchLoading(false);[m
+[31m-		// 	clearTimeout(time);[m
+[31m-		// }, 1500);[m
+[31m-	}[m
+[31m-[m
+[31m-	shouldComponentUpdate(nextProps, nextState) {[m
+[31m-		return this._updateBoolean(nextProps, nextState);[m
+[31m-	}[m
+[31m-	componentWillUpdate(nextProps, nextState) {[m
+[31m-		return this._updateBoolean(nextProps, nextState);[m
+[31m-	}[m
+[31m-[m
+[31m-	_updateBoolean(nextProps, nextState) {[m
+[31m-		let { fetchbool, nav } = this.props;[m
+[31m-		[m
+[31m-		if (fetchbool !== nextProps.fetchbool) {[m
+[31m-			return true;[m
+[31m-		} else if(nav.index !== nextProps.nav.index) {[m
+[31m-			return true;[m
+[31m-		} else {[m
+[31m-			return false;[m
+[31m-		}[m
+[31m-	}[m
+[31m-[m
+[31m-	render() {[m
+[31m-		return([m
+[31m-			<View style={{flex: 1}}>[m
+[31m-				{this.props.fetchbool ? <Loading/> : [m
+[31m-					<AppNavigator navigation={[m
+[31m-						addNavigationHelpers({dispatch: this.props.navigator, [m
+[31m-							state: this.props.nav})[m
+[31m-					}/>[m
+[31m-				}[m
+[31m-			</View>[m
+[31m-		)[m
+[31m-	}[m
+[31m-}[m
+[31m-[m
+[31m-function mapStateToProeps(state){[m
+[31m-	return {[m
+[31m-		fetchbool: state.fetchload.data,[m
+[31m-		nav: state.nav[m
+[32m+[m[32m//StackNavigator[m
+[32m+[m[32mexport const Navigator = StackNavigator([m
+[32m+[m[32m  {[m[41m  [m
+[32m+[m	[32mTab:{screen: AppNavigator},[m[41m  [m
+[32m+[m	[32mProduct:{screen: DtlWebView}[m[41m  [m
+[32m+[m[32m  },[m[41m  [m
+[32m+[m[32m  {[m[41m  [m
+[32m+[m[32m    navigationOptions:{[m[41m  [m
+[32m+[m		[32mheader: null,[m
+[32m+[m		[32mheaderBackTitle:null,[m[41m  [m
+[32m+[m		[32mheaderTintColor:'#333333',[m[41m  [m
+[32m+[m		[32mshowIcon:true,[m[41m  [m
+[32m+[m		[32mswipeEnabled:false,[m[41m  [m
+[32m+[m		[32manimationEnabled:false,[m
+[32m+[m		[32minitialRouteName: 'Hotshow'[m
+[32m+[m	[32m},[m[41m  [m
+[32m+[m[41m    [m	[32mmode:'card',[m
+ 	}[m
+[31m-};[m
+[31m-function macthDispatchToProps(dispatch) {[m
+[31m-    return bindActionCreators({[m
+[31m-		navigator: navigator,[m
+[31m-		initHotshowAction: initHotshow,[m
+[31m-		fetchLoading: fetchLoading[m
+[31m-	}, dispatch);[m
+[31m-}[m
+[32m+[m[32m);[m
+ [m
+ let style = StyleSheet.create({[m
+ 	footImage: {[m
+ 		width: 25,[m
+ 		height: 25[m
+ 	},[m
+[31m-});[m
+[31m-[m
+[31m-[m
+[31m-export default connect(mapStateToProeps, macthDispatchToProps)(AppWithNavigationState);[m
+\ No newline at end of file[m
+[32m+[m[32m});[m
+\ No newline at end of file[m

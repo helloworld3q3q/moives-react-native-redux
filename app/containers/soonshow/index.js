@@ -13,17 +13,16 @@ import { initSoonShow } from '../../actions/soonshow-action';
 import { size } from '../../util/style';
 import Wait from '../../compoments/comm/wait';
 import SoonList from './soon-list';
+import { navigation } from '../../actions/hotshow-action';
 
 class soonshow extends Component{
 	componentWillMount() {
 		this.props.initSoonShowAction();
+		this.props.navigationAction(this.props.navigation);
 	}
 
 	render() {
-		return ( 
-		<View style={{height: size.height, width:size.width, paddingBottom: 70}}> 
-			{this.props.soonshow ? <SoonList/> : <Wait/>}
-		</View>);
+		return  this.props.soonshow ? <SoonList/> : <Wait/> ;
 	}
 }
 
@@ -35,7 +34,8 @@ function mapStateToProps(state) {
 }
 function macthDispatchToProps(dispatch) {
     return bindActionCreators({
-		initSoonShowAction: initSoonShow
+		initSoonShowAction: initSoonShow,
+		navigationAction: navigation
 	}, dispatch);
 }
 export default connect(mapStateToProps, macthDispatchToProps)(soonshow);

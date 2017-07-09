@@ -5,7 +5,7 @@
  * @modify date 2017-05-12 04:56:43
  * @desc [description]
 */
-import { HOTSHOW_BANNER, HOTSHOW_LIST, HOTSHOW_FETCH, ADDMORE, USSHOW_LIST } from './types';
+import { HOTSHOW_BANNER, HOTSHOW_LIST, HOTSHOW_FETCH, ADDMORE, USSHOW_LIST, NAVIGATION } from './types';
 import { initFetch } from '../middleware/index-api';
 import { hotshow, sonshow, usshow, nearcinemas } from '../middleware/api';
 
@@ -37,9 +37,9 @@ export const initHotshow = () => {
 }
 
 //导航 action onpress
-export const navigator = (nav, type) => {
+export const navigation = (data) => {
 	return {
-		type: nav.routeName,
-		nav
+		type: NAVIGATION,
+		data
 	}
 }

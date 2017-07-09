@@ -6,7 +6,7 @@
  * @desc [description]
 */
 import React, { Component } from 'react';
-import { Text, View, Image, StyleSheet } from 'react-native';
+import { Text, View, Image, StyleSheet, TouchableOpacity  } from 'react-native';
 import { size } from '../../util/style';
 
 const width = size.width/2-0.2;
@@ -16,7 +16,13 @@ class item extends Component{
 		let data = this.props.data;
 		return(
 			<View style={style.box}>
-				<Image resizeMode='cover' style={style.avatar} source={{uri:data.images.large}}/>
+				<TouchableOpacity onPress={()=> {
+							this.props.navigation.dispatch({ 
+								type: 'WebDetail', webViewURL: data.alt 
+							});
+						}}>
+					<Image resizeMode='cover' style={style.avatar} source={{uri:data.images.large}}/>
+				</TouchableOpacity>
 				<View style={style.rank}>
 					<Text style={style.rankTxt}>Top{this.props.rank}</Text>
 				</View>

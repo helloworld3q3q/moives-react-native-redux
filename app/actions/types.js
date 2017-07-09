@@ -18,3 +18,5 @@ export const USSHOW_LIST = 'USSHOW_LIST';
 export const SOONSHOW_LIST = 'SOONSHOW_LIST';
 //影院
 export const CINEMAS_LIST ="CINEMAS_LIST";
+//navigation
+export const NAVIGATION = 'NAVIGATION';

@@ -13,29 +13,29 @@ import { size } from '../../util/style';
 import { initUsShow } from '../../actions/usshow-action';
 import UsList from './us-list';
 import Wait from '../../compoments/comm/wait';
+import { navigation } from '../../actions/hotshow-action';
 
 class usshow extends Component{
 	componentWillMount() {
 		this.props.initUsShowAction();
+		this.props.navigationAction(this.props.navigation);
 	}
 
 	render() {
-		return ( 
-		<View style={{height: size.height, width:size.width, paddingBottom: 70}}> 
-			{this.props.usshow ? <UsList /> : <Wait/>}
-		</View>);
+		return  this.props.usshow ? <UsList/> : <Wait/>;
 	}
 }
 
 function mapStateToProps(state) {
 	return {
 		nav: state.nav,
-		usshow: state.usshow.data,
+		usshow: state.usshow.data
     }
 }
 function macthDispatchToProps(dispatch) {
     return bindActionCreators({
 		initUsShowAction: initUsShow,
+		navigationAction: navigation,
 	}, dispatch);
 }
 

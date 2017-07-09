@@ -17,9 +17,9 @@ import { initUsShow } from '../../actions/usshow-action';
 import Wait from '../../compoments/comm/wait';
 
 class hotshow extends Component {
-	componentWillMount() {
-		this.props.initHotshowAction();
-	}
+	// componentDidMount() {
+	// 	//this.props.initUsShowAction();
+	// }
 
 	render() {
 		return ( 
@@ -34,9 +34,13 @@ function mapStateToProps(state) {
 		hotshows: state.hotshows.data
     }
 }
-function macthDispatchToProps(dispatch) {
-    return bindActionCreators({
-		initHotshowAction: initHotshow,
-	}, dispatch);
-}
-export default connect(mapStateToProps, macthDispatchToProps)(hotshow);
+// function macthDispatchToProps(dispatch) {
+//     return bindActionCreators({
+// 		initHotshowAction: initHotshow,
+// 		initUsShowAction: initUsShow,
+// 	}, dispatch);
+// }
+// export default connect(mapStateToProps, macthDispatchToProps)(hotshow);
+export default connect(mapStateToProps)(hotshow);
+
+//export default hotshow;

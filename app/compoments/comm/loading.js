@@ -37,7 +37,7 @@ class Loading extends Component {
 	}
 	
 	static defaultProps = {
-		spaceBetween: 7,
+		spaceBetween: 8,
 		size: 12,
   	};
 	componentDidMount() {
@@ -79,7 +79,7 @@ class Loading extends Component {
 		const scale = this.state.circles[index];
 		const offset = {
 			x: size + index * (size * 2 + spaceBetween),
-			y: size
+			y: size + 2
 		};
 
 		var AnimatedCircle = Animated.createAnimatedComponent(Circle);

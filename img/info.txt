@@ -24,4 +24,4 @@ https://api.douban.com/v2/movie/in_theaters
 
 npm config set registry https://registry.npm.taobao.org    registry.npmjs.org
 
-gradlew assembleRelease
+gradlew assembleRelease  test

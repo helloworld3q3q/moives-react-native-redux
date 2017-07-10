@@ -370,10 +370,10 @@ Date:   Thu Jul 6 23:30:32 2017 +0800
  */[m
 [31m-import CINEMAS_LIST from './types';[m
 [31m-import initFetch from '../middleware/index-api';[m
-[31m-import nearcinemas from '../middleware/api';[m
+[31m-import nearcinemas from '../middleware/apis';[m
 [32m+[m[32mimport { CINEMAS_LIST } from './types';[m
 [32m+[m[32mimport { initFetch } from '../middleware/index-api';[m
-[32m+[m[32mimport { nearcinemas } from '../middleware/api';[m
+[32m+[m[32mimport { nearcinemas } from '../middleware/apis';[m
  [m
  export const cinemasList = (data) => {[m
  	return {[m

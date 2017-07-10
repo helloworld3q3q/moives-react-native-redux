@@ -7,7 +7,7 @@
 */
 import { HOTSHOW_BANNER, HOTSHOW_LIST, HOTSHOW_FETCH, ADDMORE, USSHOW_LIST, NAVIGATION } from './types';
 import { initFetch } from '../middleware/index-api';
-import { hotshow, sonshow, usshow, nearcinemas } from '../middleware/api';
+import { hotshow, sonshow, usshow, nearcinemas } from '../middleware/apis';
 
 //添加轮播
 export const addBanner = (data) => {

@@ -33,9 +33,9 @@ local.properties
 # node.js
 #
 node_modules/
-app/middleware/api.js
 npm-debug.log
 yarn-error.log
+app/middleware/apis.js
 
 # BUCK
 buck-out/

@@ -1,6 +1,6 @@
 import { SOONSHOW_LIST } from './types';
 import { initFetch } from '../middleware/index-api';
-import { sonshow } from '../middleware/api';
+import { sonshow } from '../middleware/apis';
 
 //近期上映
 export const soonList = (data) => {
@@ -10,5 +10,5 @@ export const soonList = (data) => {
 	}
 }
 export const initSoonShow = () => {
-	return initFetch(soonList)(sonshow);
+	return initFetch(soonList)(sonsshow);
 }

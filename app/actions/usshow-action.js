@@ -1,6 +1,6 @@
 import { USSHOW_LIST } from './types';
 import { initFetch } from '../middleware/index-api';
-import { usshow } from '../middleware/api';
+import { usshow } from '../middleware/apis';
 
 //北美排行榜
 export const usList = (data) => {

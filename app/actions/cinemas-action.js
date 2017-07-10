@@ -7,7 +7,7 @@
 */
 import { CINEMAS_LIST } from './types';
 import { initFetch } from '../middleware/index-api';
-import { nearcinemas } from '../middleware/api';
+import { nearcinemas } from '../middleware/apis';
 
 export const cinemasList = (data) => {
 	return {

@@ -1,6 +1,9 @@
 <h3>加载等待</h3>
-<img src="https://github.com/helloworld3q3q/react-native-redux-demo/blob/master/img/Screenshot_2017-06-21-22-57-49.jpeg" width="300"> 
+<img src="https://github.com/helloworld3q3q/react-native-redux-demo/blob/master/img/1.jpg" width="250"> 
 <h3>首页</h3>
-<img src="https://github.com/helloworld3q3q/react-native-redux-demo/blob/master/img/Screenshot_2017-06-21-22-56-33.jpeg" width="300"> 
+<img src="https://github.com/helloworld3q3q/react-native-redux-demo/blob/master/img/2.jpg" width="250"> 
 <h3>第二页</h3>
-<img src="https://github.com/helloworld3q3q/react-native-redux-demo/blob/master/img/Screenshot_2017-06-21-22-58-11.jpeg" width="300"/>
+<img src="https://github.com/helloworld3q3q/react-native-redux-demo/blob/master/img/3.jpg" width="250"/>
+<img src="https://github.com/helloworld3q3q/react-native-redux-demo/blob/master/img/4.jpg" width="250"/>
+<img src="https://github.com/helloworld3q3q/react-native-redux-demo/blob/master/img/5.jpg" width="250"/>
+<img src="https://github.com/helloworld3q3q/react-native-redux-demo/blob/master/img/6.jpg" width="250"/>

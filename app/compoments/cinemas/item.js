@@ -6,28 +6,32 @@
  * @desc [description]
 */
 import React, { Component } from 'react';
-import { Text, View, Image, StyleSheet } from 'react-native';
+import { Text, View, Image, StyleSheet, NativeModules, TouchableHighlight } from 'react-native';
 import { size } from '../../util/style';
 
 class item extends Component{
 
 	_renderCinemasList(data) {
 		let ary = [];
-
 		for (let i in data) {
 			let item = data[i];
 			ary.push(
 				<View key={i} style={style.addrItem}>
-					<View style={style.row}>
-						<Image resizeMode='contain' style={style.icon}  
-							source={require('../../icon/icon_cinema.png')} />
-						<Text style={style.name}>影院:{item.nm}</Text>
-					</View>
-					<View style={style.row}>
-						<Image resizeMode='contain' style={style.icon}  
-							source={require('../../icon/icon_addr.png')} />
-						<Text style={style.addr}>地址:{item.addr}</Text>
-					</View>
+					<TouchableHighlight onPress={()=> NativeModules.OpenMap.openMap(item.nm)} 
+						underlayColor="#ff9e95">
+						<View>
+							<View style={style.row}>
+								<Image resizeMode='contain' style={style.icon}  
+									source={require('../../icon/icon_cinema.png')} />
+								<Text style={style.name}>影院:{item.nm}</Text>
+							</View>
+							<View style={style.row}>
+								<Image resizeMode='contain' style={style.icon}  
+									source={require('../../icon/icon_addr.png')} />
+								<Text style={style.addr}>地址:{item.addr}</Text>
+							</View>
+						</View>
+					</TouchableHighlight>
 				</View>
 			);
 		}
@@ -57,10 +61,10 @@ let style = StyleSheet.create({
 	},
 	row: {
 		flexDirection: 'row',
-		marginVertical: 2,
+		marginVertical: 1,
+		paddingVertical: 4,
 	},
 	addrItem: {
-		paddingVertical: 4,
 		borderTopWidth: 0.8,
 		borderColor: '#ffef7d',
 	},

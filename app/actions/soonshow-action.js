@@ -10,5 +10,5 @@ export const soonList = (data) => {
 	}
 }
 export const initSoonShow = () => {
-	return initFetch(soonList)(sonsshow);
+	return initFetch(soonList)(sonshow);
 }

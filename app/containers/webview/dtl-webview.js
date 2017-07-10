@@ -18,7 +18,7 @@ class DtlWebView extends Component {
 		this.state = {
 			loading: true,
 			loaded: new Animated.Value(size.height),
-			loadigMargin: 40
+			loadigTop: 40
 		}
 	}
 
@@ -33,7 +33,8 @@ class DtlWebView extends Component {
 					</TouchableOpacity>
 				</View>
 			
-				<Animated.View style={{marginTop:this.state.loadigMargin, height: this.state.loaded}}>
+				<Animated.View style={{top:this.state.loadigTop, 
+					height: this.state.loaded, position: 'absolute', zIndex: 1}}>
 					<Wait/>
 				</Animated.View>
 				<WebView source={{uri: this.props.url}}
@@ -43,7 +44,7 @@ class DtlWebView extends Component {
 							duration: 1500
 						}).start();
 						this.setState({
-							loadigMargin: 0
+							loadigTop: 0
 						});
 					}}
 				/>
@@ -60,17 +61,13 @@ function mapStateToProps(state) {
 }
 
 let style = StyleSheet.create({
-	loaded: {
-		width: 0,
-		height: 0
-	},
 	head: {
 		position: 'absolute',
 		height: 44,
 		width: 400,
 		top: 0,
 		backgroundColor: '#028ce6',
-		zIndex: 1,
+		zIndex: 2,
 	},
 	backButton: {
 		width: 40,
